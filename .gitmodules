@@ -1,12 +1,12 @@
-[submodule "exercises/paint"]
-	path = exercises/paint
+[submodule "apps/paint"]
+	path = apps/paint
 	url = https://github.com/FredrikAppelros/teaching-apps-paint.git
-[submodule "exercises/monty-hall"]
-	path = exercises/monty-hall
+[submodule "apps/monty-hall"]
+	path = apps/monty-hall
 	url = https://github.com/FredrikAppelros/teaching-apps-monty-hall.git
-[submodule "exercises/mandelbrot"]
-	path = exercises/mandelbrot
+[submodule "apps/mandelbrot"]
+	path = apps/mandelbrot
 	url = https://github.com/FredrikAppelros/teaching-apps-mandelbrot.git
-[submodule "exercises/game"]
-	path = exercises/game
+[submodule "apps/game"]
+	path = apps/game
 	url = https://github.com/FredrikAppelros/teaching-apps-game.git
