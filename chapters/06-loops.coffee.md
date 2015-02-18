@@ -7,12 +7,19 @@ Luckily, we have before us a device that does whatever we tell it to do, and a l
 example on how to print out the elements of a list
 
 for
+for i in
+for k of
+for k, v of
 while
 until
+do (when using asynchronous function calls)
 
 ## Exercises
 
 1. Make the computer print out your own name 100 times.
+
 2. Create a function which prints out each element of the list, but in reverse order.
+
 3. Create a function which finds the largest number in a list of numbers.
+
 4. Go to `apps/monty-hall` and follow the instructions in the `README` file.

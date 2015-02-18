@@ -7,10 +7,17 @@ The `console.log` which we've used as a function up until now is actually the `l
 attributes
 
 .length of lists
+array elements are actually properties
 
 API doc MDN
 
 explain why the APIs are in JavaScript
+
+try to access parameter variable outside of function, draw parallel to earlier attempt to access non-defined variable
+
+function scopes
+this and @
+binding (=>)
 
 ## Exercises
 

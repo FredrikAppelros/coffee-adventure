@@ -20,7 +20,7 @@ Before you start the tutorial you will want to follow the installation instructi
 1. [Operations](chapters/01-operations.coffee.md)
 2. [Variables](chapters/02-variables.coffee.md)
 3. [Functions](chapters/03-functions.coffee.md)
-4. [Conditionals](chapters/04-conditionals.coffee.md)
+4. [Conditionals](chapters/04-conditional-statements.coffee.md)
 5. [Data structures](chapters/05-data-structures.coffee.md)
 6. [Loops](chapters/06-loops.coffee.md)
 

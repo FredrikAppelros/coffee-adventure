@@ -1,8 +1,10 @@
-# Conditionals
+# Conditional statements
 
-We've previously played around a bit with operators that produce boolean values, but we have yet to see them in a meaningful context. Using them within *conditional statements* allows us to run code based on different conditions. The most common of these conditional statements is the `if` statement.
+We've previously played around a bit with operators that produce boolean values, but we have yet to see them in a meaningful context. Using them within *conditional statements* allows us to run code based on different conditions.
 
-Let's find out how to use the `if` statement by creating a function which returns the absolute value of a number.
+### If statements
+
+The most common of these conditional statements is the `if` statement. Let's find out how to use the `if` statement by creating a function which returns the absolute value of a number.
 
     abs = (value) ->
       if value < 0
@@ -54,6 +56,8 @@ Note that the order of the `else if` clauses makes a difference. If we were to s
 
 When we add `else if` clauses, this also affects the `else` clause. The `else` clause is only executed if none of the previous clauses evalutes to `true`.
 
+### Switch statements
+
 Another type of conditional statement is the `switch` statement. This one can be really useful if we have a single variable with multiple states, such as in the following snippet.
 
     cmd = 'dance'
@@ -78,4 +82,5 @@ Conditional statements are the second type of control flow statements that we've
   login 'Homer', 'donut'
   login 'Bart', 'Ay! Caramba!'
   ```
+
 2. Write a function called `favorite`, that takes a number as an argument, and outputs that spot on a list of your top 5 favorite dishes/artists/animals. For example, calling the function with the number `3` might produce the following output: `My third favorite animal is the ocelot!`
