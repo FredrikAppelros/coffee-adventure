@@ -1,12 +1,12 @@
 [submodule "apps/paint"]
 	path = apps/paint
-	url = https://github.com/FredrikAppelros/teaching-apps-paint.git
+	url = https://github.com/FredrikAppelros/coffee-adventure-paint.git
 [submodule "apps/monty-hall"]
 	path = apps/monty-hall
-	url = https://github.com/FredrikAppelros/teaching-apps-monty-hall.git
+	url = https://github.com/FredrikAppelros/coffee-adventure-monty-hall.git
 [submodule "apps/mandelbrot"]
 	path = apps/mandelbrot
-	url = https://github.com/FredrikAppelros/teaching-apps-mandelbrot.git
+	url = https://github.com/FredrikAppelros/coffee-adventure-mandelbrot.git
 [submodule "apps/game"]
 	path = apps/game
-	url = https://github.com/FredrikAppelros/teaching-apps-game.git
+	url = https://github.com/FredrikAppelros/coffee-adventure-game.git
