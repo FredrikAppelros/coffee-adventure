@@ -11,7 +11,7 @@ Let's try creating some different types of data. How about we start with some nu
     23
     42
 
-We're not just restricted to integers, we can of course represent any real number.¹
+We're not just restricted to integers, we can of course represent any real number.<sup>[1]</sup>
 
     0.5
     123.45
@@ -28,6 +28,10 @@ Another type that is very common in programming, but that doesn't have much reco
 
 These values will come in handy later on when we need our code to react to different circumstances.
 
+There's one more thing that you will run across, but that's not a data type, and that is *comments*. Comments are not actually part of the code, but simply small pieces of text that the programmer adds to clarify things. The computer will just skip these lines. Comments are created with the `#` charater:
+
+    # This is just a comment and will be ignored by the computer
+
 That's it for data types; next up is operations!
 
-<small>1. There are some numbers that can never be represented with [perfect accuracy](http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems) using the standard floating point representation.</small>
+<sub>[1] There are some numbers that can never be represented with [perfect accuracy](http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems) using the standard floating point representation.</sub>

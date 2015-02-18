@@ -2,7 +2,7 @@
 
 As we've mentioned before, the data that a computer uses for its computations is stored in the memory. To use it, we first need to access it. This could be done by using direct memory addressing, but a far simpler way is to use variables. Variables are just symbols that represent a memory address.
 
-We can use variables to store the result of our computations. To do this, we will use yet another operator, `=`, the assignment operator. It takes two operands; a variable and a value. The variable is simply a word that acts as a handle for the stored value. We can use any combination of alphanumeric characters, as well as the `_` and `$` characters, so long as the variable does not start with a digit and does not conflict with any of the keywords in the language.¹
+We can use variables to store the result of our computations. To do this, we will use yet another operator, `=`, the assignment operator. It takes two operands; a variable and a value. The variable is simply a word that acts as a handle for the stored value. We can use any combination of alphanumeric characters, as well as the `_` and `$` characters, so long as the variable does not start with a digit and does not conflict with any of the keywords in the language.<sup>[1]</sup>
 
     myvariable = 42
     another_variable = 24
@@ -45,7 +45,7 @@ Aha, so apparently we cannot reference variables before they are defined. In Cof
 
 Variables will be very useful for us when we start writing more complex pieces of code. But let's move on. Next up is functions!
 
-<small>1. This is actually not completely true, but is generally considered good practice. The actual rules that are applied to variable identifiers can be found [here](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6).</small>
+<sub>[1] This is actually not completely true, but is generally considered good practice. The actual rules that are applied to variable identifiers can be found [here](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6).</sub>
 
 ## Exercises
 

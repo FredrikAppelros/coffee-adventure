@@ -72,6 +72,7 @@ Conditional statements are the second type of control flow statements that we've
 ## Exercises
 
 1. Write a simple login function called `login`. It should take two arguments: `username` and `password`. If the username and password combination matches `'Homer'` and `'doh'`, the login is successful, and the function should return `true`. In all other cases, the login function should return `false` *and* print `Access denied`. In the following snippet, only the first statement should be successful.
+
   ```coffee
   login 'Homer', 'doh'
   login 'Homer', 'donut'

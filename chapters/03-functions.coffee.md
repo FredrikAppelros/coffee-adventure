@@ -4,7 +4,7 @@ So, up until now, we've only been able to use basic operations on data. What if 
 
 With functions we can group statements together into a sort of reusable bundle. To allow functions to operate on different inputs, they are defined using *parameters*. Parameters are simply a set of variables that the function operates on. When you want to use a function you *call* it with a set of *arguments*. The arguments are the values that will be bound to the parameters.
 
-Okay, that was a lot of terminology and probably quite confusing. Let's try to use an existing function, `console.log`.¹ This function takes a series of strings and outputs them on the *standard output stream*, or `stdout` in short.
+Okay, that was a lot of terminology and probably quite confusing. Let's try to use an existing function, `console.log`.<sup>[1]</sup> This function takes a series of strings and outputs them on the *standard output stream*, or `stdout` in short.
 
     console.log 'Hello, World!'
 
@@ -91,7 +91,7 @@ We could, in the last example, also just define the callback function directly, 
 
 That was it for functions. Next up we will learn how to perform different operations under different conditions.
 
-<small>1. Actually, console.log is not a function. It is the log method of the global console object. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</small>
+<sub>[1] Actually, console.log is not just a function, it's a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub>
 
 ## Exercises
 
