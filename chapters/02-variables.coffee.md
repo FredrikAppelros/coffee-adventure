@@ -24,10 +24,15 @@ The last type of operation where a variable is modified and then stored back int
     x /= 4
     x %= 5
 
-The case where you simply increment or decrement x numeric variable is so common that there exists even more concise shorthands for that.
+The case where you simply increment or decrement a numeric variable is so common that there exists even more concise shorthands for that.
 
     ++x
     --x
+
+You can also write it the other way around, if you want the value returned to be the original value, instead of the modified one.
+
+    x++
+    x--
 
 To see the value that is currently stored in a variable, you can create a statement that consist of just the variable name.
 
@@ -65,7 +70,7 @@ Variables will be very useful for us when we start writing more complex pieces o
   y = 5
   x += 2
   x %= 3
-  x++
+  ++x
   x *= 4
   y /= 5
   x--

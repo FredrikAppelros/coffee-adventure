@@ -1,14 +1,10 @@
-++
---
 **
 //
-in
-typeof
 ^
 &
 |
 <<
 >>
+typeof
 
-precedences
 short-circuiting

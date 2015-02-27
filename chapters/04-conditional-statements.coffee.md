@@ -71,7 +71,7 @@ Another type of conditional statement is the `switch` statement. This one can be
 
 The same logic can be achieved using just `if` statements, but this way is more convenient. Here we use the `when` keyword to define the different states that our variable can assume, in combination with an `else` clause in the case that the variable doesn't match any of our defined states.
 
-Conditional statements are the second type of control flow statements that we've run into. Soon we will go through the third, and last, type of control flow statements. But first we need to learn about some basic data structures.
+Conditional statements are the second type of control flow statements that we've run into. Soon we will learn of a few more. But first we need to learn about some basic data structures.
 
 ## Exercises
 

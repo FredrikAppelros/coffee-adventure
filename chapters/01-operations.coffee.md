@@ -37,7 +37,11 @@ So, what more can we do? Well, we can concatenate strings with numbers.
 
     'I wish I had ' + 12 + ' apples'
 
-As you see this simply uses the decimal representation of the number and treats it as a string.
+As you see this simply uses the decimal representation of the number and treats it as if it were a string. A better way to do this is to use *string iterpolation*.
+
+    "I wish I had #{ 24 / 2 } apples"
+
+When interpolating a string, any code within `#{}` will be evaluated and inserted back into the string. This is only possible using `"` characters. Strings enclosed in `'` characters are always interpreted literally.
 
 Perhaps you have noticed that the `+` operator does different things to different types of data. That is what data types are for; to allow us to define different operations on them. So, can we remove a part of a string from another? Let's try it.
 

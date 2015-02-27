@@ -2,7 +2,7 @@
 
 The data that a computer uses for its computations is located in memory. Everything in the memory is really just numbers. We can, however, interpret these numbers in different ways. Depending on how you interpret it, the same data might represent a number, a snippet of text or even an image. The most common interpretations can be built into the language itself, as is the case with CoffeeScript. These interpretations are called *types*.
 
-Let's try creating some different types of data. How about we start with some numbers? Open the CoffeeScript [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) with the `coffee` command and type in the following:
+Let's try creating some different types of data. How about we start with some numbers? Open the CoffeeScript REPL with the `coffee` command and type in the following:
 
     4
     8

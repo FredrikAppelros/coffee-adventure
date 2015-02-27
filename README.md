@@ -23,6 +23,9 @@ Before you start the tutorial you will want to follow the installation instructi
 4. [Conditionals](chapters/04-conditional-statements.coffee.md)
 5. [Data structures](chapters/05-data-structures.coffee.md)
 6. [Loops](chapters/06-loops.coffee.md)
+7. [Classes](chapters/07-classes.coffee.md)
+8. [Errors](chapters/08-errors.coffee.md)
+9. [More operations](chapters/09-more-operations.coffee.md)
 
 **Fun fact:** Since the chapters are written as literate CoffeeScript files, it means that you can actually run them! You can try it out with the following shell command:
 

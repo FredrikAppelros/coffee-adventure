@@ -29,6 +29,13 @@ What if we want to access a property on an object, but the property name is dyna
     prop = 'breed'
     console.log dog[prop]
 
+When I wrote that properties can be seen as variables, I didn't mean that they actually are variables. One difference between properties and variables are their names. Property names are more flexible than variable names, in fact, they can be any string!
+
+    animals =
+      '🐱': "I'm a cat"
+      '🐮': "I'm a cow"
+    console.log animals['🐱']
+
 Okay, so now we know two ways of accessing properties on objects. But how do we set properties after the object has been created? Actually, both of these ways of accessing the properties can also be used to change the value of it. They can even be used to add new properties.
 
     car.model = 'S80'
@@ -79,6 +86,10 @@ Besides using the bracket notation to add elements to specific positions in the 
     console.log list[1]
 
 Hey, wait a minute! Did you just say method? Wasn't it only objects that could have methods? Correct, again! Arrays are actually a special type of objects, in fact, pretty much everything in CoffeeScript is an object. Numbers, strings, functions, you name it!
+
+There are many more interesting properties of the different data types we have encountered. For now, let's look at one more that exists for both strings and arrays. The `length` property holds the size of a string or array.
+
+    console.log list.length
 
 With these new tools at our disposal, we're able to organize data in both convenient and efficient ways. Now we can move on to learn how to process larger amounts of data with loops.
 
