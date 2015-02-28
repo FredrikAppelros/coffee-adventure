@@ -118,5 +118,3 @@ We've now walked through the last types of control flow statements that we will 
 2. Create a function which prints out each element of a given list, but in reverse order.
 
 3. Create a function which finds the largest number in a list of positive numbers.
-
-4. Go to `apps/monty-hall` and follow the instructions in the `README` file.
