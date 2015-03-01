@@ -52,3 +52,5 @@ Each submodule uses [npm](https://www.npmjs.com/) and [Bower](http://bower.io/) 
 ```sh
 git submodule foreach 'npm install && bower install'
 ```
+
+**Tip:** If you need some more help with the installation; check out the [wiki](https://github.com/FredrikAppelros/coffee-adventure/wiki/Installation)!
