@@ -34,4 +34,6 @@ There's one more thing that you will run across, but that's not a data type, and
 
 That's it for data types; next up is operations!
 
+[Next chapter →](./01-operations.coffee.md)
+
 <sub>[1] There are some numbers that can never be represented with [perfect accuracy](http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems) using the standard floating point representation.</sub>

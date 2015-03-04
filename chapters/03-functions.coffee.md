@@ -91,6 +91,8 @@ We could, in the last example, also just define the callback function directly, 
 
 That was it for functions. Next up we will learn how to perform different operations under different conditions.
 
+[← Previous chapter](./02-variables.coffee.md) | [Next chapter →](./04-conditional-statements.coffee.md)
+
 <sub>[1] Actually, console.log is not just a function, it's a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub>
 
 ## Exercises

@@ -111,6 +111,8 @@ We can resolve this situation quite easily by binding each iteration to the curr
 
 We've now walked through the last types of control flow statements that we will encounter. Next, we will learn about the classes.
 
+[← Previous chapter](./05-data-structures.coffee.md) | [Next chapter →](./07-classes.coffee.md)
+
 ## Exercises
 
 1. Make the computer print out your own name 100 times.

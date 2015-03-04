@@ -73,6 +73,8 @@ The same logic can be achieved using just `if` statements, but this way is more 
 
 Conditional statements are the second type of control flow statements that we've run into. Soon we will learn of a few more. But first we need to learn about some basic data structures.
 
+[← Previous chapter](./03-functions.coffee.md) | [Next chapter →](./05-data-structures.coffee.md)
+
 ## Exercises
 
 1. Write a simple login function called `login`. It should take two arguments: `username` and `password`. If the username and password combination matches `'Homer'` and `'doh'`, the login is successful, and the function should return `true`. In all other cases, the login function should return `false` *and* print `Access denied`. In the following snippet, only the first statement should be successful.
