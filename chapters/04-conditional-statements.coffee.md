@@ -87,4 +87,4 @@ Conditional statements are the second type of control flow statements that we've
 
 2. Write a function called `favorite`, that takes a number as an argument, and outputs that spot on a list of your top 5 favorite dishes/artists/animals. For example, calling the function with the number `3` might produce the following output: `My third favorite animal is the ocelot!`
 
-3. Go to `apps/monty-hall` and follow the instructions in the `README` file.
+3. Go to `apps/monty-hall` and follow the instructions in the [`README`](https://github.com/FredrikAppelros/coffee-adventure-monty-hall/blob/master/README.md) file.
