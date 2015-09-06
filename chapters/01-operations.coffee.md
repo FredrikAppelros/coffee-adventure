@@ -81,8 +81,6 @@ So, to summarize things:
 
 Now, let's move on to another powerful concept: variables!
 
-[← Previous chapter](./00-types.coffee.md) | [Next chapter →](./02-variables.coffee.md)
-
 ## Exercises
 
 1. What is the result of the following expressions?

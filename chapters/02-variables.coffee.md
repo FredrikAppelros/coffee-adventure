@@ -50,8 +50,6 @@ Aha, so apparently we cannot reference variables before they are defined. In Cof
 
 Variables will be very useful for us when we start writing more complex pieces of code. But let's move on. Next up is functions!
 
-[← Previous chapter](./01-operations.coffee.md) | [Next chapter →](./03-functions.coffee.md)
-
 <sub>[1] This is actually not completely true, but is generally considered good practice. The actual rules that are applied to variable identifiers can be found [here](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6).</sub>
 
 ## Exercises

@@ -93,9 +93,7 @@ There are many more interesting properties of the different data types we have e
 
 With these new tools at our disposal, we're able to organize data in both convenient and efficient ways. Now we can move on to learn how to process larger amounts of data with loops.
 
-[← Previous chapter](./04-conditional-statements.coffee.md) | [Next chapter →](./06-loops.coffee.md)
-
-<sub>[1] If you need this operation be performant, using the in keyword might not be your best bet. Then it might be much better to use an object instead.</sub>
+<sub>[1] If you need this operation to be performant, using the in keyword might not be your best bet. Then it might be much better to use an object instead.</sub>
 
 ## Exercises
 

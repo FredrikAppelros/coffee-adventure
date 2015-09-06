@@ -12,7 +12,7 @@ Okay, so that just printed the string right back to us. Seems a lot like just wr
 
 When we're using the REPL we constantly get feedback on what our statements evaluate to. This is not the case if we write our code as a *script*. A script is a file which contains code that can be run by an *interpreter*. The interpreter is the part that is used by the REPL to convert the code that we write into actual instructions that the computer then executes. Actually, this file you're reading right now is a script!
 
-So, to produce any kind of output from a script, we need to send it somewhere. That is what `stdout` is for! Normally, if you run the script from a terminal, then the text that is sent to `stdout` is printed in the terminal. All other statements will be silent and not result in anything being output to the user.
+So, to produce any kind of output from a script, we need to send it somewhere. That is what `stdout` is for! Normally, if you run the script from a terminal, then the text that is sent to `stdout` is printed in the terminal. All other statements will be silent and not result in any output.
 
 Moving on, to fully understand functions, let's create our own. Actually, let's create it in a script. Open a new empty file and save it as `myscript.coffee`. Now, instead of entering the code into the REPL, write it in this file.
 
@@ -24,7 +24,7 @@ So, say we want a function that calculates the area of a triangle. The function 
 
 To understand what's going on, let's break it down a bit. The first part, `triangleArea =`, is just a normal variable assignment. Functions can be used as values and we've chosen to store our function in a variable named `triangleArea`. The rest of the snippet is the actual function definition. The variables within parenthesis, `width` and `height`, are our function parameters. Then comes the `->` symbol that indicates the start of the *function body*.
 
-The function body is a set of statements, or *code block*, that are executed when the function is called. As you can see, these statements are indented relative to the rest of the code. In most languages, this is done simply to make it easier for the reader to understand which parts of the code belong to the function and which don't. This is *not* the case with CoffeeScript. The indentation here is required for the interpreter to parse the code. Lines that are not indented will not be executed when the function is called.
+The function body is a set of statements, or *code block*, that are executed when the function is called. As you can see, these statements are indented relative to the rest of the code. In most languages, this is done simply to make it easier for the reader to understand which parts of the code belong to the function and which don't. This is *not* the case with CoffeeScript. The indentation here is required for the interpreter to parse the code. Lines that are not indented do not belong to the function, and will not be executed when the function is called.
 
 The indentation can be accomplished with either tabs or spaces, but be sure to not mix them. Also, if you use spaces, try to use a multiple of 2. If you use different styles of indentation within the same block, the interpreter will fail to parse your code correctly.
 
@@ -91,9 +91,7 @@ We could, in the last example, also just define the callback function directly, 
 
 That was it for functions. Next up we will learn how to perform different operations under different conditions.
 
-[← Previous chapter](./02-variables.coffee.md) | [Next chapter →](./04-conditional-statements.coffee.md)
-
-<sub>[1] Actually, console.log is not just a function, it's a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub>
+<sub>[1] Actually, console.log is not just a function; it's a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub>
 
 ## Exercises
 
