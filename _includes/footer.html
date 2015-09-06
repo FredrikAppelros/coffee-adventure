@@ -1,0 +1,27 @@
+<footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    {% if page.chapter %}
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        {% if page.first != true %}
+        <a href="/chapters/{{ page.chapter | minus: 1 }}/">← Previous chapter</a>
+        {% endif %}
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <a href="/chapters/">Table of contents</a>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        {% if page.last != true %}
+        <a href="/chapters/{{ page.chapter | plus: 1 }}/">Next chapter →</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+</footer>
