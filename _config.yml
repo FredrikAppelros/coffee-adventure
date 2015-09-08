@@ -1,6 +1,6 @@
 title: A Coffee Fueled Adventure
 description: A Beginner's Guide to Programming in CoffeeScript
-exclude: [apps/, chapters/, LICENSE.md, README.md]
+exclude: [apps/, chapters/, LICENSE.md, README.md, gulpfile.coffee]
 kramdown:
   input: GFM
 sass:
