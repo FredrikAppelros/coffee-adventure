@@ -174,6 +174,15 @@ pre {
 
 
 /**
+ * Subscript
+ */
+sub {
+    color: darken($text-color, 30%);
+}
+
+
+
+/**
  * Clearfix
  */
 %clearfix {
