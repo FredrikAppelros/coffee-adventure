@@ -174,8 +174,9 @@ pre {
 
 
 /**
- * Subscript
+ * Superscript and subscript
  */
+sup,
 sub {
     color: darken($text-color, 30%);
 }
