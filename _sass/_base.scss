@@ -20,6 +20,7 @@ body {
     font-weight: 300;
     color: $text-color;
     background-color: $background-color;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -127,10 +128,10 @@ blockquote {
  */
 pre,
 code {
+    color: #f8f8f2;
+    background: #272822;
     font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    text-shadow: none;
 }
 
 code {
@@ -139,7 +140,7 @@ code {
 
 pre {
     padding: 8px 12px;
-    overflow-x: scroll;
+    overflow: auto;
 
     > code {
         border: 0;
