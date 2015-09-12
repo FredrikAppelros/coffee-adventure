@@ -5,7 +5,7 @@ gulp = require 'gulp'
 insert = require 'gulp-insert'
 
 paths =
-  src: 'chapters/*.coffee.md'
+  src: 'chapters/*.litcoffee'
   dst: 'pages'
 
 chapters = fs.readdirSync path.dirname paths.src
@@ -16,7 +16,7 @@ capitalize = (s) ->
 
 insertFrontMatter = (contents, file) ->
   name = path.basename file.path
-  matches = name.match /^(\d+)-([\w-]+).coffee.md$/
+  matches = name.match /^(\d+)-([\w-]+).litcoffee$/
   return contents if not matches
   idx = parseInt matches[1]
   title = capitalize matches[2].replace /-/g, ' '
@@ -39,6 +39,5 @@ gulp.task 'build', ->
     .pipe(gulp.dest paths.dst)
     .on 'end', ->
       exec 'jekyll build'
-
 
 gulp.task 'default', ['build']
