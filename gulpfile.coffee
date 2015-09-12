@@ -1,5 +1,6 @@
 fs = require 'fs'
 path = require 'path'
+exec = (require 'child_process').exec
 gulp = require 'gulp'
 insert = require 'gulp-insert'
 
@@ -36,5 +37,8 @@ gulp.task 'build', ->
   gulp.src(paths.src)
     .pipe(insert.transform insertFrontMatter)
     .pipe(gulp.dest paths.dst)
+    .on 'end', ->
+      exec 'jekyll build'
+
 
 gulp.task 'default', ['build']
