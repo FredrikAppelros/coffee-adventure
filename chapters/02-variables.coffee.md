@@ -65,15 +65,13 @@ Variables will be very useful for us when we start writing more complex pieces o
 
 2. What value does the variable `x` have after executing the following statements?
 
-  ```coffee
-  x = 1
-  y = 5
-  x += 2
-  x %= 3
-  ++x
-  x *= 4
-  y /= 5
-  x--
-  y = x
-  y -= 2
-  ```
+        x = 1
+        y = 5
+        x += 2
+        x %= 3
+        ++x
+        x *= 4
+        y /= 5
+        x--
+        y = x
+        y -= 2
