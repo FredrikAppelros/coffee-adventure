@@ -10,22 +10,26 @@ paths =
 chapters = fs.readdirSync path.dirname paths.src
 last = chapters.length - 1
 
+capitalize = (s) ->
+  s[0].toUpperCase() + s.substr 1
+
 insertFrontMatter = (contents, file) ->
   name = path.basename file.path
   matches = name.match /^(\d+)-([\w-]+).coffee.md$/
   return contents if not matches
   idx = parseInt matches[1]
-  title = matches[2].replace /-/g, ' '
+  title = capitalize matches[2].replace /-/g, ' '
   frontMatter = """
   ---
   layout: chapter
   title: #{title}
   permalink: /chapters/#{idx}/
   chapter: #{idx}
+  first: #{idx is 0}
+  last: #{idx is last}
+  ---
+
   """
-  frontMatter += '\nfirst: true' if idx is 0
-  frontMatter += '\nlast: true' if idx is last
-  frontMatter += '\n---\n'
   frontMatter + contents
 
 gulp.task 'build', ->
