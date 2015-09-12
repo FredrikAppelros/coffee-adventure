@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: data structures
+title: Data structures
 permalink: /chapters/5/
 chapter: 5
+first: false
+last: false
 ---
 # Data structures
 

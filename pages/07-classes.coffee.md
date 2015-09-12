@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: classes
+title: Classes
 permalink: /chapters/7/
 chapter: 7
+first: false
+last: false
 ---
 class
 extends

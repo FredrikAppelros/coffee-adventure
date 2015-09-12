@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: functions
+title: Functions
 permalink: /chapters/3/
 chapter: 3
+first: false
+last: false
 ---
 # Functions
 

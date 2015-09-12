@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: loops
+title: Loops
 permalink: /chapters/6/
 chapter: 6
+first: false
+last: false
 ---
 # Loops
 

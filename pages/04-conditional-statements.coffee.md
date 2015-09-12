@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: conditional statements
+title: Conditional statements
 permalink: /chapters/4/
 chapter: 4
+first: false
+last: false
 ---
 # Conditional statements
 
@@ -83,11 +85,9 @@ Conditional statements are the second type of control flow statements that we've
 
 1. Write a simple login function called `login`. It should take two arguments: `username` and `password`. If the username and password combination matches `'Homer'` and `'doh'`, the login is successful, and the function should return `true`. In all other cases, the login function should return `false` *and* print `Access denied`. In the following snippet, only the first statement should be successful.
 
-  ```coffee
-  login 'Homer', 'doh'
-  login 'Homer', 'donut'
-  login 'Bart', 'Ay! Caramba!'
-  ```
+        login 'Homer', 'doh'
+        login 'Homer', 'donut'
+        login 'Bart', 'Ay! Caramba!'
 
 2. Write a function called `favorite`, that takes a number as an argument, and outputs that spot on a list of your top 5 favorite dishes/artists/animals. For example, calling the function with the number `3` might produce the following output: `My third favorite animal is the ocelot!`
 

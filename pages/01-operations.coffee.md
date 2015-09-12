@@ -1,8 +1,10 @@
 ---
 layout: chapter
-title: operations
+title: Operations
 permalink: /chapters/1/
 chapter: 1
+first: false
+last: false
 ---
 # Operations
 

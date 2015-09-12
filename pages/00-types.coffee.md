@@ -1,9 +1,10 @@
 ---
 layout: chapter
-title: types
+title: Types
 permalink: /chapters/0/
 chapter: 0
 first: true
+last: false
 ---
 # Types
 
