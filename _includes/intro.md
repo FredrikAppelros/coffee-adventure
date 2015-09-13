@@ -12,4 +12,4 @@ Since these applications are often run in the browser, they cannot be started li
 
 Before you can get your hands dirty, you will want to follow the installation instructions found on [GitHub]({{ site.github.repository_url }}). Having done that, you should be all set and ready to begin!
 
-Click [here]({{ "/chapters/0" | prepend: site.baseurl }}) to start the tutorial.
+Click [here]({{ "/chapters/1" | prepend: site.baseurl }}) to start the tutorial.
