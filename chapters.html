@@ -9,9 +9,10 @@ permalink: /chapters/
 
   <ol class="chapters">
 
-    {% for page in site.pages %}
-      {% if page.chapter %}
-      <li><a class="chapter-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+    {% assign chapters = site.chapters | sort: 'index' %}
+    {% for chapter in chapters %}
+      {% if chapter.index %}
+      <li><a class="chapter-link" href="{{ chapter.url | prepend: site.baseurl }}">{{ chapter.title }}</a></li>
       {% endif %}
     {% endfor %}
 

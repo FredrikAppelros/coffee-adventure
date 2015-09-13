@@ -1,15 +1,12 @@
-fs = require 'fs'
 path = require 'path'
 exec = (require 'child_process').exec
 gulp = require 'gulp'
 insert = require 'gulp-insert'
+rename = require 'gulp-rename'
 
 paths =
   src: 'chapters/*.litcoffee'
-  dst: 'pages'
-
-chapters = fs.readdirSync path.dirname paths.src
-last = chapters.length - 1
+  dst: '_chapters'
 
 capitalize = (s) ->
   s[0].toUpperCase() + s.substr 1
@@ -24,18 +21,21 @@ insertFrontMatter = (contents, file) ->
   ---
   layout: chapter
   title: #{title}
-  permalink: /chapters/#{idx}/
-  chapter: #{idx}
-  first: #{idx is 0}
-  last: #{idx is last}
+  index: #{idx}
   ---
 
   """
   frontMatter + contents
 
+renameToChapterIndex = (path) ->
+  matches = path.basename.match /^(\d+)-([\w-]+)$/
+  idx = parseInt matches[1]
+  path.basename = idx
+
 gulp.task 'build', ->
   gulp.src(paths.src)
     .pipe(insert.transform insertFrontMatter)
+    .pipe(rename renameToChapterIndex)
     .pipe(gulp.dest paths.dst)
     .on 'end', ->
       exec 'jekyll build'

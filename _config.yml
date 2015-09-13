@@ -13,3 +13,9 @@ exclude:
 markdown: redcarpet
 sass:
   style: compressed
+collections:
+  chapters:
+    output: true
+    permalink: /chapters/:path/
+  exercises:
+  answers:

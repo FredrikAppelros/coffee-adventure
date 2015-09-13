@@ -2,21 +2,21 @@
 
   <div class="wrapper">
 
-    {% if page.chapter %}
+    {% if page.index %}
     <div class="footer-col-wrapper">
-      <div class="footer-col  footer-col-1">
-        {% if page.first != true %}
-        <a href="{{ site.baseurl }}/chapters/{{ page.chapter | minus: 1 }}">← Previous chapter</a>
+      <div class="footer-col footer-col-1">
+        {% if page.index > 1 %}
+        <a href="{{ site.baseurl }}/chapters/{{ page.index | minus: 1 }}">← Previous chapter</a>
         {% endif %}
       </div>
 
-      <div class="footer-col  footer-col-2">
+      <div class="footer-col footer-col-2">
         <a href="{{ site.baseurl }}/chapters">Table of contents</a>
       </div>
 
-      <div class="footer-col  footer-col-3">
-        {% if page.last != true %}
-        <a href="{{ site.baseurl }}/chapters/{{ page.chapter | plus: 1 }}">Next chapter →</a>
+      <div class="footer-col footer-col-3">
+        {% if page.index < site.chapters.size %}
+        <a href="{{ site.baseurl }}/chapters/{{ page.index | plus: 1 }}">Next chapter →</a>
         {% endif %}
       </div>
     </div>
