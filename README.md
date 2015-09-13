@@ -16,21 +16,21 @@ Before you start the tutorial you will want to follow the installation instructi
 
 ## Chapters
 
-0. [Types](chapters/00-types.coffee.md)
-1. [Operations](chapters/01-operations.coffee.md)
-2. [Variables](chapters/02-variables.coffee.md)
-3. [Functions](chapters/03-functions.coffee.md)
-4. [Conditionals](chapters/04-conditional-statements.coffee.md)
-5. [Data structures](chapters/05-data-structures.coffee.md)
-6. [Loops](chapters/06-loops.coffee.md)
-7. [Classes](chapters/07-classes.coffee.md)
-8. [Errors](chapters/08-errors.coffee.md)
-9. [More operations](chapters/09-more-operations.coffee.md)
+0. [Types](chapters/00-types.litcoffee)
+1. [Operations](chapters/01-operations.litcoffee)
+2. [Variables](chapters/02-variables.litcoffee)
+3. [Functions](chapters/03-functions.litcoffee)
+4. [Conditionals](chapters/04-conditional-statements.litcoffee)
+5. [Data structures](chapters/05-data-structures.litcoffee)
+6. [Loops](chapters/06-loops.litcoffee)
+7. [Classes](chapters/07-classes.litcoffee)
+8. [Errors](chapters/08-errors.litcoffee)
+9. [More operations](chapters/09-more-operations.litcoffee)
 
 **Fun fact:** Since the chapters are written as literate CoffeeScript files, it means that you can actually run them! You can try it out with the following shell command:
 
 ```sh
-coffee chapters/03-functions.coffee.md
+coffee chapters/03-functions.litcoffee
 ```
 
 ## Installation
