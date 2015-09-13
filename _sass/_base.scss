@@ -152,6 +152,16 @@ pre {
 
 
 /**
+ * Superscript and subscript
+ */
+sup,
+sub {
+    color: darken($text-color, 30%);
+}
+
+
+
+/**
  * Wrapper
  */
 .wrapper {
@@ -169,16 +179,6 @@ pre {
         padding-right: $spacing-unit / 2;
         padding-left: $spacing-unit / 2;
     }
-}
-
-
-
-/**
- * Superscript and subscript
- */
-sup,
-sub {
-    color: darken($text-color, 30%);
 }
 
 
