@@ -5,39 +5,77 @@ insert = require 'gulp-insert'
 rename = require 'gulp-rename'
 
 paths =
-  src: 'chapters/*.litcoffee'
-  dst: '_chapters'
+  chapters:
+    src: 'chapters/*.litcoffee'
+    dst: '_chapters'
+  exercises:
+    src: 'exercises/**/*.litcoffee'
+    dst: '_exercises'
+  answers:
+    src: 'answers/**/*.litcoffee'
+    dst: '_answers'
 
 capitalize = (s) ->
   s[0].toUpperCase() + s.substr 1
 
-insertFrontMatter = (contents, file) ->
-  name = path.basename file.path
-  matches = name.match /^(\d+)-([\w-]+).litcoffee$/
-  return contents if not matches
-  idx = parseInt matches[1]
-  title = capitalize matches[2].replace /-/g, ' '
+createFrontMatter = (config) ->
   frontMatter = """
   ---
-  layout: chapter
-  title: #{title}
-  index: #{idx}
+  #{("#{k}: #{v}" for k, v of config).join '\n'}
   ---
 
   """
+  frontMatter
+
+getChapterConfig = (name) ->
+  matches = name.match /^(\d+)-([\w-]+).litcoffee$/
+  idx = matches[1]
+  title = capitalize matches[2].replace /-/g, ' '
+  config =
+    layout: 'chapter'
+    title: title
+    index: idx
+
+getExerciseConfig = (name) ->
+  matches = name.match /^(\d+)\/(\d+).litcoffee$/
+  chapter = matches[1]
+  idx = matches[2]
+  config =
+    chapter: chapter
+    index: idx
+
+insertChapterFrontMatter = (contents, file) ->
+  config = getChapterConfig file.relative
+  frontMatter = createFrontMatter config
+  frontMatter + contents
+
+insertExerciseFrontMatter = (contents, file) ->
+  config = getExerciseConfig file.relative
+  frontMatter = createFrontMatter config
   frontMatter + contents
 
 renameToChapterIndex = (path) ->
   matches = path.basename.match /^(\d+)-([\w-]+)$/
-  idx = parseInt matches[1]
+  idx = matches[1]
   path.basename = idx
 
-gulp.task 'build', ->
-  gulp.src(paths.src)
-    .pipe(insert.transform insertFrontMatter)
+gulp.task 'chapters', ->
+  gulp.src(paths.chapters.src)
+    .pipe(insert.transform insertChapterFrontMatter)
     .pipe(rename renameToChapterIndex)
-    .pipe(gulp.dest paths.dst)
-    .on 'end', ->
-      exec 'jekyll build'
+    .pipe(gulp.dest paths.chapters.dst)
+
+gulp.task 'exercises', ->
+  gulp.src(paths.exercises.src)
+    .pipe(insert.transform insertExerciseFrontMatter)
+    .pipe(gulp.dest paths.exercises.dst)
+
+gulp.task 'answers', ->
+  gulp.src(paths.answers.src)
+    .pipe(insert.transform insertExerciseFrontMatter)
+    .pipe(gulp.dest paths.answers.dst)
+
+gulp.task 'build', ['chapters', 'exercises', 'answers'], ->
+  exec 'jekyll build'
 
 gulp.task 'default', ['build']

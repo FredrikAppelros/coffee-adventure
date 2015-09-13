@@ -94,9 +94,3 @@ There are many more interesting properties of the different data types we have e
 With these new tools at our disposal, we're able to organize data in both convenient and efficient ways. Now we can move on to learn how to process larger amounts of data with loops.
 
 <sub>[1] If you need this operation to be performant, using the in keyword might not be your best bet. Then it might be much better to use an object instead.</sub>
-
-## Exercises
-
-1. Create an object called `room` to represent your surroundings. It should contain the following properties: `size`, `color` and `furniture`. The `furniture` property should be an array of strings, describing the various furniture in the room.
-
-2. Write the function `favorite` from the exercises in the previous chapter, but this time, don't use any conditional statements.

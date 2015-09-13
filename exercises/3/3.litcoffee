@@ -1,0 +1,1 @@
+Create two variables, `age` and `name`, that represents your age and name, respectively. Using these two variables, create a third one, `greeting`, which should be a string containing a greeting that presents yourself with your name and age.

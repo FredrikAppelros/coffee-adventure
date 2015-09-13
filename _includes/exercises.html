@@ -1,0 +1,46 @@
+<div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  {% assign exercises = site.exercises | sort: 'index' %}
+  {% assign answers = site.answers | sort: 'index' %}
+
+  <h2>Exercises</h2>
+
+  {% for exercise in exercises %}
+
+    {% if exercise.chapter == page.index %}
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise {{ exercise.index }}</h3>
+
+      {{ exercise.content | litcoffeeify }}
+
+      {% for answer in answers %}
+
+        {% if (answer.chapter == exercise.chapter) and (answer.index == exercise.index) %}
+        <iron-collapse id="answer-{{ exercise.index }}">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          {{ answer.content | litcoffeeify }}
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle({{ exercise.index }})" noink toggles>
+          Show me the answer
+        </paper-button>
+        {% endif %}
+
+      {% endfor %}
+
+    </div>
+    {% endif %}
+
+  {% endfor %}
+
+</div>

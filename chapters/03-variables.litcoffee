@@ -51,27 +51,3 @@ Aha, so apparently we cannot reference variables before they are defined. In Cof
 Variables will be very useful for us when we start writing more complex pieces of code. But let's move on. Next up is functions!
 
 <sub>[1] This is actually not completely true, but is generally considered good practice. The actual rules that are applied to variable identifiers can be found [here](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6).</sub>
-
-## Exercises
-
-1. Which of the following variable names are valid?
-
-  * `abc`
-  * `ABC`
-  * `abc123`
-  * `abc_123`
-  * `123abc`
-  * `a1b2c3`
-
-2. What value does the variable `x` have after executing the following statements?
-
-        x = 1
-        y = 5
-        x += 2
-        x %= 3
-        ++x
-        x *= 4
-        y /= 5
-        x--
-        y = x
-        y -= 2

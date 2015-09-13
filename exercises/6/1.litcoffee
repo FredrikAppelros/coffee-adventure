@@ -1,0 +1,1 @@
+Create an object called `room` to represent your surroundings. It should contain the following properties: `size`, `color` and `furniture`. The `furniture` property should be an array of strings, describing the various furniture in the room.

@@ -110,11 +110,3 @@ We can resolve this situation quite easily by binding each iteration to the curr
           console.log "Completed task: #{task}"
 
 We've now walked through the last types of control flow statements that we will encounter. Next, we will learn about classes.
-
-## Exercises
-
-1. Make the computer print out your own name 100 times.
-
-2. Create a function which prints out each element of a given list, but in reverse order.
-
-3. Create a function which finds the largest number in a list of positive numbers.

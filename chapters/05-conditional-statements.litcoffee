@@ -72,15 +72,3 @@ Another type of conditional statement is the `switch` statement. This one can be
 The same logic can be achieved using just `if` statements, but this way is more convenient. Here we use the `when` keyword to define the different states that our variable can assume, in combination with an `else` clause in the case that the variable doesn't match any of our defined states.
 
 Conditional statements are the second type of control flow statements that we've run into. Soon we will learn of a few more. But first we need to learn about some basic data structures.
-
-## Exercises
-
-1. Write a simple login function called `login`. It should take two arguments: `username` and `password`. If the username and password combination matches `'Homer'` and `'doh'`, the login is successful, and the function should return `true`. In all other cases, the login function should return `false` *and* print `Access denied`. In the following snippet, only the first statement should be successful.
-
-        login 'Homer', 'doh'
-        login 'Homer', 'donut'
-        login 'Bart', 'Ay! Caramba!'
-
-2. Write a function called `favorite`, that takes a number as an argument, and outputs that spot on a list of your top 5 favorite dishes/artists/animals. For example, calling the function with the number `3` might produce the following output: `My third favorite animal is the ocelot!`
-
-3. Go to `apps/monty-hall` and follow the instructions in the [`README`](https://github.com/FredrikAppelros/coffee-adventure-monty-hall/blob/master/README.md) file.

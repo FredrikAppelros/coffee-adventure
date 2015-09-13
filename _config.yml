@@ -5,6 +5,8 @@ exclude:
   - node_modules/
   - apps/
   - chapters/
+  - exercises/
+  - answers/
   - LICENSE.md
   - README.md
   - gulpfile.coffee

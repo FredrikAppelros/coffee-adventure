@@ -27,6 +27,34 @@
 
 
 /**
+ * Exercises
+ */
+.exercise-wrapper {
+    background-color: lighten($grey-color, 10%);
+    padding: $spacing-unit;
+    margin-bottom: $spacing-unit;
+}
+
+.exercise-header {
+    i {
+        margin-right: $spacing-unit / 2;
+    }
+}
+
+.answer-button {
+    color: $brand-color;
+    font-size: 16px;
+    font-weight: 700;
+    text-shadow: none;
+
+    &[active] {
+        background-color: lighten($grey-color, 25%);
+    }
+}
+
+
+
+/**
  * Chapter footer
  */
 .chapter-footer {

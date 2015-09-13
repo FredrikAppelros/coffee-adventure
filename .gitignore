@@ -1,4 +1,7 @@
 node_modules
+bower_components
 .sass-cache
 _site
 _chapters
+_exercises
+_answers

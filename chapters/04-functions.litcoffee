@@ -92,11 +92,3 @@ We could, in the last example, also just define the callback function directly, 
 That was it for functions. Next up we will learn how to perform different operations under different conditions.
 
 <sub>[1] Actually, console.log is not just a function; it's a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub>
-
-## Exercises
-
-1. Write a function that calculates the area of a rectangle.
-
-2. Write a function that calculates the volume of a rectangular prism, using the function from the previous exercise to calculate the area of the base.
-
-3. Go to `apps/paint` and follow the instructions in the [`README`](https://github.com/FredrikAppelros/coffee-adventure-paint/blob/master/README.md) file.
