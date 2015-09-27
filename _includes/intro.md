@@ -10,6 +10,6 @@ At the end of each chapter, there will sometimes be a few exercises for the read
 
 Since these applications are often run in the browser, they cannot be started like the rest of the snippets and scripts in this tutorial. To aid with this, each application has been equipped with a fully automated build environment using [gulp](http://gulpjs.com/). This means that all you need to do is run the `gulp` command and let gulp do all the hard work for you.
 
-Before you can get your hands dirty, you will want to follow the installation instructions found on [GitHub]({{ site.github.repository_url }}). Having done that, you should be all set and ready to begin!
+Before you can get your hands dirty, you will want to follow the installation instructions found on [GitHub](https://github.com/FredrikAppelros/coffee-adventure). Having done that, you should be all set and ready to begin!
 
 Click [here]({{ "/chapters/1" | prepend: site.baseurl }}) to start the tutorial.
