@@ -7,8 +7,21 @@
     min-height: 56px;
 }
 
+.site-icon {
+    float: left;
+    margin: 10px $spacing-unit / 2 0 0;
+    text-shadow: none;
+
+    &:visited {
+        color: $brand-color;
+    }
+
+    &:hover {
+        color: lighten($brand-color, 10%);
+    }
+}
+
 .site-title {
-    font-size: 32px;
     font-weight: bold;
     line-height: 56px;
     letter-spacing: -1px;
@@ -70,6 +83,10 @@
     @extend %clearfix;
 
     td {
+        i {
+            margin: 0 $spacing-unit / 2;
+        }
+
         &:nth-child(1) {
             text-align: left;
         }
