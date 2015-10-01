@@ -16,16 +16,16 @@ Before you start the tutorial you will want to follow the installation instructi
 
 ## Chapters
 
-0. [Types](chapters/00-types.litcoffee)
-1. [Operations](chapters/01-operations.litcoffee)
-2. [Variables](chapters/02-variables.litcoffee)
-3. [Functions](chapters/03-functions.litcoffee)
-4. [Conditionals](chapters/04-conditional-statements.litcoffee)
-5. [Data structures](chapters/05-data-structures.litcoffee)
-6. [Loops](chapters/06-loops.litcoffee)
-7. [Classes](chapters/07-classes.litcoffee)
-8. [Errors](chapters/08-errors.litcoffee)
-9. [More operations](chapters/09-more-operations.litcoffee)
+1. [Types](chapters/1-types.litcoffee)
+2. [Operations](chapters/2-operations.litcoffee)
+3. [Variables](chapters/3-variables.litcoffee)
+4. [Functions](chapters/4-functions.litcoffee)
+5. [Conditionals](chapters/5-conditional-statements.litcoffee)
+6. [Data structures](chapters/6-data-structures.litcoffee)
+7. [Loops](chapters/7-loops.litcoffee)
+8. [Classes](chapters/8-classes.litcoffee)
+9. [Errors](chapters/9-errors.litcoffee)
+10. [More operations](chapters/10-more-operations.litcoffee)
 
 **Fun fact:** Since the chapters are written as literate CoffeeScript files, it means that you can actually run them! You can try it out with the following shell command:
 
