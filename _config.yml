@@ -10,7 +10,6 @@ exclude:
   - gulpfile.coffee
   - Gemfile
   - Gemfile.lock
-markdown: redcarpet
 sass:
   style: compressed
 collections:
