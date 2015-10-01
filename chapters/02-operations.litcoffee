@@ -1,6 +1,6 @@
 # Operations
 
-Even the most complex computer program can be broken down into a series of rather simple operations that are performed on the data. We will now go through a few of the available basic operations that can be done on the types that we introduced in the previous exercise.
+Even the most complex computer program can be broken down into a series of rather simple operations that are performed on the data. We will now go through a few of the available basic operations that can be performed on the types that we introduced in the previous exercise.
 
 Let's start with some basic arithmetic operations.
 

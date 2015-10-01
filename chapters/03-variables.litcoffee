@@ -44,7 +44,9 @@ So what happens if we try to access a variable that we haven't used yet? Let's f
 
 Whooa! The computer just threw a ton of strange text back at us. This time the computer did not return a result, as we just introduced an error. Instead, it gave us what is called a *stack trace*. It is used to trace the source of the problem, so that we can correct it. In this case, we can see it clearly in the first row:
 
-`ReferenceError: thisvariabledoesnotexist is not defined`
+```sh
+ReferenceError: thisvariabledoesnotexist is not defined
+```
 
 Aha, so apparently we cannot reference variables before they are defined. In CoffeeScript, variables are defined the first time you assign something to them.
 
