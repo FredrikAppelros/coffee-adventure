@@ -40,6 +40,44 @@
 
 
 /**
+ * Buttons
+ */
+paper-button {
+    font-size: 16px;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.start-wrapper {
+    text-align: center;
+    border-top: 1px solid $grey-color-light;
+}
+
+.start-button {
+    color: #fff;
+    background-color: lighten($grey-color, 25%);
+    margin-top: $spacing-unit;
+
+    &:hover {
+        background-color: $brand-color;
+    }
+
+    &[pressed] {
+        background-color: lighten($brand-color, 25%);
+    }
+}
+
+.answer-button {
+    color: $brand-color;
+
+    &[active] {
+        background-color: lighten($grey-color, 25%);
+    }
+}
+
+
+
+/**
  * Exercises
  */
 .exercise-wrapper {
@@ -51,17 +89,6 @@
 .exercise-header {
     i {
         margin-right: $spacing-unit / 2;
-    }
-}
-
-.answer-button {
-    color: $brand-color;
-    font-size: 16px;
-    font-weight: 700;
-    text-shadow: none;
-
-    &[active] {
-        background-color: lighten($grey-color, 25%);
     }
 }
 

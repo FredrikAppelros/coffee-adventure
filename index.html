@@ -7,4 +7,10 @@ layout: default
   {% capture intro %}{% include intro.md %}{% endcapture %}
   {{ intro | markdownify }}
 
+  <div class="start-wrapper">
+    <paper-button class="start-button" noink raised onclick="window.location.assign('{{ "/chapters/1" | prepend: site.baseurl }}')">
+        Start the tutorial
+    </paper-button>
+  </div>
+
 </div>
