@@ -9,6 +9,8 @@ exclude:
   - answers/
   - LICENSE.md
   - README.md
+  - package.json
+  - bower.json
   - gulpfile.coffee
   - Gemfile
   - Gemfile.lock
