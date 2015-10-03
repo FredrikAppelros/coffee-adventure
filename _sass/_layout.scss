@@ -105,8 +105,9 @@ paper-button {
 .footer-table {
     width: 100%;
     table-layout: fixed;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
+    text-transform: uppercase;
     @extend %clearfix;
 
     td {
