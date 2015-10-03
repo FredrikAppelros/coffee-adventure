@@ -1,0 +1,10 @@
+{
+  "name": "coffee-adventure",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-insert": "^0.5.0",
+    "coffee-script": "^1.10.0"
+  }
+}
