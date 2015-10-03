@@ -4,7 +4,7 @@
 
 So, you want to learn how to code? Great! This tutorial aims to help you get the basics down. It's divided up into a bunch of chapters which teaches different core concepts of programming.
 
-Within these chapters, besides a bunch of text, you will find small snippets of code. It's recommended that the reader not just read these, but actually copy them and run them interactively using the CoffeeScript [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). This hands-on approach will allow the reader to get familiar with writing code. Eventually, the snippets will get more complex and you will want to move on to writing the code in text files.
+Within these chapters, besides a bunch of text, you will find small snippets of code. It's recommended that the reader not just read these, but actually copy them and run them interactively using the CoffeeScript [REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). This hands-on approach will allow the reader to get familiar with writing code. Eventually, the snippets will get more complex and you will want to move on to writing the code in separate files.
 
 A text editor that works great for this is [Atom](https://atom.io/), which incidentally is written in CoffeeScript itself. If Atom isn't your cup of coffee (okay, no more bad puns), you can take a look at the excellent [Sublime Text](http://www.sublimetext.com/) editor. Or you can just use your own favorite text editor, if you already have one.
 
@@ -27,7 +27,7 @@ Before you start the tutorial you will want to follow the installation instructi
 9. [Errors](chapters/9-errors.litcoffee)
 10. [More operations](chapters/10-more-operations.litcoffee)
 
-**Fun fact:** Since the chapters are written as literate CoffeeScript files, it means that you can actually run them! You can try it out with the following shell command:
+**Fun fact:** Since the chapters are written as literate CoffeeScript files, you can actually run them! You can try it out with the following shell command:
 
 ```sh
 coffee chapters/03-functions.litcoffee
