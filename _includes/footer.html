@@ -8,7 +8,7 @@
         <td>
           {% if page.index > 1 %}
           <a href="{{ site.baseurl }}/chapters/{{ page.index | minus: 1 }}">
-            <i class="fa fa-chevron-left"></i>Previous chapter
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
           </a>
           {% endif %}
         </td>
@@ -20,7 +20,7 @@
         <td>
           {% if page.index < site.chapters.size %}
           <a href="{{ site.baseurl }}/chapters/{{ page.index | plus: 1 }}">
-            Next chapter<i class="fa fa-chevron-right"></i>
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
           </a>
           {% endif %}
         </td>

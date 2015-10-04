@@ -8,21 +8,24 @@
 }
 
 .site-icon {
+    display: inline-block;
     float: left;
-    margin: 10px $spacing-unit / 2 0 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    padding: $spacing-unit / 2;
+    margin: 12px $spacing-unit / 2 0 0;
+    text-align: center;
+    vertical-align: middle;
     text-shadow: none;
-
-    &:visited {
-        color: $brand-color;
-    }
+    background-color: $brand-color;
 
     &:hover {
-        color: lighten($brand-color, 10%);
+        background-color: lighten($brand-color, 25%);
     }
 }
 
 .site-title {
-    font-weight: bold;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
@@ -110,7 +113,7 @@ paper-button {
     text-transform: uppercase;
     @extend %clearfix;
 
-    td {
+    & > tbody > tr > td {
         i {
             margin: 0 $spacing-unit / 2;
         }
@@ -135,14 +138,36 @@ paper-button {
  * Mobile adjustments
  */
 @include media-query($on-palm) {
+    .site-icon {
+        width: 100%;
+        margin-top: -5px;
+        margin-left: -$spacing-unit / 2;
+        margin-right: -$spacing-unit / 2;
+        border-radius: 0;
+    }
+
     .site-title {
+        clear: left;
         font-size: 28px;
     }
 
-    .footer-col {
-        float: none;
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-        text-align: left;
+    .start-wrapper {
+        margin-left: -$spacing-unit / 2;
+        margin-right: -$spacing-unit / 2;
+    }
+
+    .exercise-wrapper {
+        margin-left: -$spacing-unit / 2;
+        margin-right: -$spacing-unit / 2;
+    }
+
+    .chapter-footer {
+        margin-left: -$spacing-unit / 2;
+        margin-right: -$spacing-unit / 2;
+        padding: $spacing-unit;
+    }
+
+    .footer-text {
+        display: none;
     }
 }
