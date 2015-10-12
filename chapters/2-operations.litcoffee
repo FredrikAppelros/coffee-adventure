@@ -12,20 +12,35 @@ Let's start with some basic arithmetic operations.
 
 Okay, so now we see that the REPL actually returns the result of these calculations, and doesn't just echo back what we just wrote! Let the significance of this sink in for a bit. We told the computer to run a computation for us and provide us with the result. This is the essence of computer programming. The example itself is not very impressive though, since you can do this with any pocket calculator. Let's look at some operations that are not commonly found in calculators: comparisons.
 
-    1 > 2
-    2 < 3
-    4 >= 4
-    5 <= 6
+    1 is 1
+    1 isnt 2
+    2 > 3
+    3 < 4
+    5 >= 5
+    6 <= 7
 
 So, what's happening here is that we're comparing two numbers to each other and that we receive a boolean value as the result. This value indicates if the comparison was truthful or not. We will see how that is useful later on.
 
-We also see that an *operator*, the symbol that represents the operation, doesn't have to concist of a single character. It can in fact be a series of symbols in concert or even a word as we will see a bit further down. The values on either side of the operation symbol are called *operands*.
+We also see that an *operator*, the symbol that represents the operation, doesn't have to concist of a single character. It can in fact be a series of symbols in concert or even a word. The values on either side of the operation symbol are called *operands*.
 
-Another operator that is commonly used in programming is `%`, the modulo operator. Even if you haven't heard of the term modulus before, you have probably used it. It's simply a fancy word for the remainder that is produced when doing an integer division. Let's try it out.
+Another operator that is commonly used in programming is `%`, the modulo operator. Even if you haven't heard of the term modulus before, you have probably used it. Let's try it out.
 
     4 % 10
     14 % 10
     42 % 2
+
+As you might have figured out, the modulus is simply a fancy word for the remainder that is produced during division.
+
+Yet another thing that's good to know is that operators have different *precedence*. This is just like ordinary mathematical notation where multiplication has a higher precedence than addition. And again, just like in mathematical notation, the precedence of an expression can be changed using parenthesis. This means that the following expression will evaluate to different results.
+
+    1 + 2 * 3
+    (1 + 2) * 3
+
+The last arithmetic operator we will introduce in this chapter is the negation operator, `-`, which returns the negative value of its operand.
+
+    -(1 + 2)
+
+It uses the same symbol as the subtraction operator, but the difference lies in how many operands they operate on. The negation operator is a *unary operator*, which means that it only has a single operand. On the other hand, the subtraction operator, is a *binary operator*, which means that it uses two operands. In some languages there are even *ternary operators* which, yeah, you guessed it, works with three operators.
 
 So, what can we do with the other types we just introduced?
 
@@ -51,26 +66,11 @@ Well, no, at least not like that. The return value we got was `NaN`, which stand
 
 Now, let's introduce some operations that we can perform on booleans.
 
-    true is false
-    true isnt false
     not true
     true and false
     true or false
 
 Be sure to try different combinations of these to really understand how these operations work!
-
-The words that are used as operators here are *keywords*, which are reserved within the language and may not be used for anything else other than to represent the operation.
-
-Another thing worthy of noting is that the `not` operator takes only a single operand. The other operators we've seen until now have been *binary operators*, i.e. they work on two operands. The `not` operator is a *unary operator*, which means it operates on a single operand. In some languages there are even *ternary operators* which, yeah, you guessed it, works with three operators.
-
-Yet another thing that's good to know is that operators have different *precedence*. This is just like ordinary mathematical notation where multiplication has a higher precedence than addition. And again, just like in mathematical notation, the precedence of an expression can be changed using parenthesis. This means that the following expression will evaluate to different results.
-
-    1 + 2 * 3
-    (1 + 2) * 3
-
-Lastly, there also exists a unary operator that uses the same symbol as the binary operator for subtraction, `-`. This operator, the negation operator, returns the negative value of its operand.
-
-    -(1 + 2)
 
 So, to summarize things:
 

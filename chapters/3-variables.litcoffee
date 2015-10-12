@@ -2,7 +2,7 @@
 
 As we've mentioned before, the data that a computer uses for its computations is stored in the memory. To use it, we first need to access it. This could be done by using direct memory addressing, but a far simpler way is to use variables. Variables are just symbols that represent a memory address.
 
-We can use variables to store the result of our computations. To do this, we will use yet another operator, `=`, the assignment operator. It takes two operands; a variable and a value. The variable is simply a word that acts as a handle for the stored value. We can use any combination of alphanumeric characters, as well as the `_` and `$` characters, so long as the variable does not start with a digit and does not conflict with any of the keywords in the language.<sup>[1]</sup>
+We can use variables to store the result of our computations. To do this, we will use yet another operator, `=`, the assignment operator. It takes two operands; a variable and a value. The variable is simply a word that acts as a handle for the stored value. We can use any combination of alphanumeric characters, as well as the `_` and `$` characters, so long as the variable does not start with a digit and does not conflict with any of the keywords in the language. A *keyword* is a word that has been reserved for a special purpose within the language, such as `is` or `and`.<sup>[1]</sup>
 
     myVariable = 42
     another_variable = 24
