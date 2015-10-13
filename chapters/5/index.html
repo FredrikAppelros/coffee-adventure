@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conditional statements</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/5/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Conditional statements</h1>
+
+<p>We&#39;ve previously played around a bit with operators that produce boolean values, but we have yet to see them in a meaningful context. Using them within <em>conditional statements</em> allows us to run code based on different conditions.</p>
+
+<h3>If statements</h3>
+
+<p>The most common of these conditional statements is the <code>if</code> statement. Let&#39;s find out how to use the <code>if</code> statement by creating a function which returns the absolute value of a number.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">abs = </span><span class="nf">(value) -&gt;</span>
+  <span class="k">if</span> <span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="nv">value = </span><span class="o">-</span><span class="nx">value</span>
+  <span class="nx">value</span>
+</code></pre></div>
+<p>The <code>if</code> statement takes an expression and a code block, and executes the code block if the expression evaluates to <code>true</code>. Just like with the function body, the code block that belongs to the <code>if</code> statement needs to be indented. When we use it, we can see that the negation statement is only applied to some inputs.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">abs</span> <span class="mi">0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">abs</span> <span class="mi">1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">abs</span> <span class="o">-</span><span class="mi">2</span>
+</code></pre></div>
+<p>If we want to take action in both the case that the expression evaluates to <code>true</code> and <code>false</code>, we can do so by adding an optional <code>else</code> clause.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">name = </span><span class="s">&#39;Rebecca Black&#39;</span>
+<span class="k">if</span> <span class="nx">name</span> <span class="o">is</span> <span class="s">&#39;MC Hammer&#39;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Hammer time!&#39;</span>
+<span class="k">else</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Can&#39;t touch this.&quot;</span>
+</code></pre></div>
+<p>What if we want to execute a statement only if an expression is <code>false</code> instead? Well, we can either use the <code>not</code> operator or we can use the shorthand form <code>unless</code>, which is the same as <code>if not</code>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">age = </span><span class="mi">26</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;No grown-ups allowed!&#39;</span> <span class="k">unless</span> <span class="nx">age</span> <span class="o">&lt;</span> <span class="mi">18</span>
+</code></pre></div>
+<p>Here we&#39;re using the postfix form of <code>unless</code>, that is, we wrote the conditional at the end of, instead of in front of the statement which we wanted to execute conditionally. This can also be applied to the <code>if</code> statement, of course.</p>
+
+<p>If we want to be really concise, we can even write an entire <code>if</code> statement with an <code>else</code> clause on a single line with the help of the <code>then</code> keyword.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">weekend = </span><span class="kc">false</span>
+<span class="nv">food = </span><span class="k">if</span> <span class="nx">weekend</span> <span class="k">then</span> <span class="s">&#39;candy&#39;</span> <span class="k">else</span> <span class="s">&#39;beans&#39;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Today I will eat &#39;</span> <span class="o">+</span> <span class="nx">food</span>
+</code></pre></div>
+<p>Be sure to also note that the <code>if</code> statement returned a value which we assigned to a variable. So, just like most things in CoffeeScript, even <code>if</code> statements return results. Neat!</p>
+
+<p>In the case that our condition has more than two states, we can even add a couple of <code>else if</code> clauses.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">size = </span><span class="mi">42</span>
+<span class="k">if</span> <span class="nx">size</span> <span class="o">&lt;</span> <span class="mi">10</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;That&#39;s not very big&quot;</span>
+<span class="k">else</span> <span class="k">if</span> <span class="nx">size</span> <span class="o">&lt;</span> <span class="mi">20</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Meh, decent I guess&quot;</span>
+<span class="k">else</span> <span class="k">if</span> <span class="nx">size</span> <span class="o">&lt;</span> <span class="mi">50</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Now, that&#39;s big&quot;</span>
+<span class="k">else</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;That thing is HUGE!&quot;</span>
+</code></pre></div>
+<p>Note that the order of the <code>else if</code> clauses makes a difference. If we were to shift them around we would never reach <code>size &lt; 20</code> because we would have already triggered the <code>size &lt; 50</code> condition.</p>
+
+<p>When we add <code>else if</code> clauses, this also affects the <code>else</code> clause. The <code>else</code> clause is only executed if none of the previous clauses evalutes to <code>true</code>.</p>
+
+<h3>Switch statements</h3>
+
+<p>Another type of conditional statement is the <code>switch</code> statement. This one can be really useful if we have a single variable with multiple states, such as in the following snippet.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">cmd = </span><span class="s">&#39;dance&#39;</span>
+<span class="k">switch</span> <span class="nx">cmd</span>
+  <span class="k">when</span> <span class="s">&#39;eat&#39;</span> <span class="k">then</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Om-nom-nom&#39;</span>
+  <span class="k">when</span> <span class="s">&#39;dance&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;*spin*&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;*sidestep*&#39;</span>
+  <span class="k">when</span> <span class="s">&#39;sleep&#39;</span> <span class="k">then</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Zzz-zzz-zzz&#39;</span>
+  <span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;I can&#39;t do that!&quot;</span>
+</code></pre></div>
+<p>The same logic can be achieved using just <code>if</code> statements, but this way is more convenient. Here we use the <code>when</code> keyword to define the different states that our variable can assume, in combination with an <code>else</code> clause in the case that the variable doesn&#39;t match any of our defined states.</p>
+
+<p>Conditional statements are the second type of control flow statements that we&#39;ve run into. Soon we will learn of a few more. But first we need to learn about some basic data structures.</p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>Write a simple login function called <code>login</code>. It should take two arguments: <code>username</code> and <code>password</code>. If the username and password combination matches <code>&#39;Homer&#39;</code> and <code>&#39;doh&#39;</code>, the login is successful, and the function should return <code>true</code>. In all other cases, the login function should return <code>false</code> <em>and</em> print <code>Access denied</code>. In the following snippet, only the first statement should be successful.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">login</span> <span class="s">&#39;Homer&#39;</span><span class="p">,</span> <span class="s">&#39;doh&#39;</span>
+<span class="nx">login</span> <span class="s">&#39;Homer&#39;</span><span class="p">,</span> <span class="s">&#39;donut&#39;</span>
+<span class="nx">login</span> <span class="s">&#39;Bart&#39;</span><span class="p">,</span> <span class="s">&#39;Ay! Caramba!&#39;</span>
+</code></pre></div>
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">login = </span><span class="nf">(username, password) -&gt;</span>
+  <span class="nv">success = </span><span class="nx">username</span> <span class="o">is</span> <span class="s">&#39;Homer&#39;</span> <span class="o">and</span> <span class="nx">password</span> <span class="o">is</span> <span class="s">&#39;doh&#39;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Access denied&#39;</span> <span class="k">unless</span> <span class="nx">success</span>
+  <span class="nx">success</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>Write a function called <code>favorite</code>, that takes a number as an argument, and outputs that spot on a list of your top five favorite animals. For example, calling the function with the number <code>3</code> might produce the following output:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">My third favorite animal is the ocelot!
+</code></pre></div>
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">favorite = </span><span class="nf">(idx) -&gt;</span>
+  <span class="nv">ordinal = </span><span class="k">switch</span> <span class="nx">idx</span>
+    <span class="k">when</span> <span class="mi">1</span> <span class="k">then</span> <span class="s">&#39;first&#39;</span>
+    <span class="k">when</span> <span class="mi">2</span> <span class="k">then</span> <span class="s">&#39;second&#39;</span>
+    <span class="k">when</span> <span class="mi">3</span> <span class="k">then</span> <span class="s">&#39;third&#39;</span>
+    <span class="k">when</span> <span class="mi">4</span> <span class="k">then</span> <span class="s">&#39;fourth&#39;</span>
+    <span class="k">when</span> <span class="mi">5</span> <span class="k">then</span> <span class="s">&#39;fifth&#39;</span>
+  <span class="nv">animal = </span><span class="k">switch</span> <span class="nx">idx</span>
+    <span class="k">when</span> <span class="mi">1</span> <span class="k">then</span> <span class="s">&#39;unicorn&#39;</span>
+    <span class="k">when</span> <span class="mi">2</span> <span class="k">then</span> <span class="s">&#39;cobra&#39;</span>
+    <span class="k">when</span> <span class="mi">3</span> <span class="k">then</span> <span class="s">&#39;ocelot&#39;</span>
+    <span class="k">when</span> <span class="mi">4</span> <span class="k">then</span> <span class="s">&#39;manbearpig&#39;</span>
+    <span class="k">when</span> <span class="mi">5</span> <span class="k">then</span> <span class="s">&#39;nyan cat&#39;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;My </span><span class="si">#{</span><span class="nx">ordinal</span><span class="si">}</span><span class="s"> favorite animal is the </span><span class="si">#{</span><span class="nx">animal</span><span class="si">}</span><span class="s">!&quot;</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 3</h3>
+
+      <p>Go to <code>apps/monty-hall</code> and follow the instructions in the <a href="https://github.com/FredrikAppelros/coffee-adventure-monty-hall/blob/master/README.md"><code>README</code></a> file.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+          <a href="/coffee-adventure/chapters/4">
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
+          </a>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/6">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

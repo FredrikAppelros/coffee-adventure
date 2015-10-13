@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Types</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/1/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Types</h1>
+
+<p>The data that a computer uses for its computations is located in memory. Everything in the memory is really just numbers. We can, however, interpret these numbers in different ways. Depending on how you interpret it, the same data might represent a number, a snippet of text or even an image. The most common interpretations can be built into the language itself, as is the case with CoffeeScript. These interpretations are called <em>types</em>.</p>
+
+<p>Let&#39;s try creating some different types of data. How about we start with some numbers? Open the CoffeeScript REPL with the <code>coffee</code> command and type in the following:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">4</span>
+<span class="mi">8</span>
+<span class="mi">15</span>
+<span class="mi">16</span>
+<span class="mi">23</span>
+<span class="mi">42</span>
+</code></pre></div>
+<p>We&#39;re not just restricted to integers, we can of course represent any real number.<sup>[1]</sup></p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mf">0.5</span>
+<span class="mf">123.45</span>
+</code></pre></div>
+<p>As you see, after each input the REPL responds by echoing the same number that was entered. Each row you entered is actually a <em>statement</em>, a piece of code that the computer executes. The echoed number is actually the result of evaluating the code you just typed. But more on that later, let&#39;s create a bit of text, or a <em>string</em> as the technical term is.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&quot;We can write text within double ticks...&quot;</span>
+<span class="s">&#39;... or single ticks&#39;</span>
+</code></pre></div>
+<p>Another type that is very common in programming, but that doesn&#39;t have much recognition anywhere else is the <em>boolean</em>. Booleans have only two possible values, either <code>true</code> or <code>false</code>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span>
+<span class="kc">false</span>
+</code></pre></div>
+<p>These values will come in handy later on when we need our code to react to different circumstances.</p>
+
+<p>There&#39;s one more thing that you will run across, but that&#39;s not a data type, and that is <em>comments</em>. Comments are not actually part of the code, but simply small pieces of text that the programmer adds to clarify things. The computer will just skip these lines. Comments are created with the <code>#</code> charater:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="c1"># This is just a comment and will be ignored by the computer</span>
+</code></pre></div>
+<p>That&#39;s it for data types; next up is operations!</p>
+
+<p><sub>[1] There are some numbers that can never be represented with <a href="http://en.wikipedia.org/wiki/Floating_point#Accuracy_problems">perfect accuracy</a> using the standard floating point representation.</sub></p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>Create a number that represents your age.</p>
+
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>Assuming your age is 10 then you would simply write:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">10</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>Create a string with your name in it.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>Assuming your name is Bart you could write either:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&quot;Bart&quot;</span>
+</code></pre></div>
+<p>Or, equivalently:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&#39;Bart&#39;</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 3</h3>
+
+      <p>Create a <em>string</em> that represents your age.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-3">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>Assuming your age is 10 you could write either:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&quot;10&quot;</span>
+</code></pre></div>
+<p>Or, equivalently:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&#39;10&#39;</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(3)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/2">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

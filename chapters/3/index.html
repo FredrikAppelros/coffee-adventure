@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Variables</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/3/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Variables</h1>
+
+<p>As we&#39;ve mentioned before, the data that a computer uses for its computations is stored in the memory. To use it, we first need to access it. This could be done by using direct memory addressing, but a far simpler way is to use variables. Variables are just symbols that represent a memory address.</p>
+
+<p>We can use variables to store the result of our computations. To do this, we will use yet another operator, <code>=</code>, the assignment operator. It takes two operands; a variable and a value. The variable is simply a word that acts as a handle for the stored value. We can use any combination of alphanumeric characters, as well as the <code>_</code> and <code>$</code> characters, so long as the variable does not start with a digit and does not conflict with any of the keywords in the language. A <em>keyword</em> is a word that has been reserved for a special purpose within the language, such as <code>is</code> or <code>and</code>.<sup>[1]</sup></p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">myVariable = </span><span class="mi">42</span>
+<span class="nv">another_variable = </span><span class="mi">24</span>
+<span class="nv">x = </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nv">th1sIsAv4r1abl3 = </span><span class="s">&#39;Forty-two&#39;</span>
+</code></pre></div>
+<p>Variables can also be used as values. That is, we can also use them on the right-hand side of the assignment operator or in other operations.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">a = </span><span class="mi">1</span>
+<span class="nv">b = </span><span class="mi">2</span>
+<span class="nv">c = </span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+<span class="nv">c = </span><span class="nx">c</span> <span class="o">*</span> <span class="mi">3</span>
+</code></pre></div>
+<p>The last type of operation where a variable is modified and then stored back into itself is so common that there exists a couple of operators that acts as shorthands for it.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nx">x</span> <span class="o">-=</span> <span class="mi">2</span>
+<span class="nx">x</span> <span class="o">*=</span> <span class="mi">3</span>
+<span class="nx">x</span> <span class="o">/=</span> <span class="mi">4</span>
+<span class="nx">x</span> <span class="o">%=</span> <span class="mi">5</span>
+</code></pre></div>
+<p>The case where you simply increment or decrement a numeric variable is so common that there exists even more concise shorthands for that.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="o">++</span><span class="nx">x</span>
+<span class="o">--</span><span class="nx">x</span>
+</code></pre></div>
+<p>You can also write it the other way around, if you want the value returned to be the original value, instead of the modified one.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">x</span><span class="o">++</span>
+<span class="nx">x</span><span class="o">--</span>
+</code></pre></div>
+<p>To see the value that is currently stored in a variable, you can create a statement that consist of just the variable name.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">x</span>
+</code></pre></div>
+<p>So what happens if we try to access a variable that we haven&#39;t used yet? Let&#39;s find out.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">thisvariabledoesnotexist</span>
+</code></pre></div>
+<p>Whooa! The computer just threw a ton of strange text back at us. This time the computer did not return a result, as we just introduced an error. Instead, it gave us what is called a <em>stack trace</em>. It is used to trace the source of the problem, so that we can correct it. In this case, we can see it clearly in the first row:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ReferenceError: thisvariabledoesnotexist is not defined
+</code></pre></div>
+<p>Aha, so apparently we cannot reference variables before they are defined. In CoffeeScript, variables are defined the first time you assign something to them.</p>
+
+<p>Variables will be very useful for us when we start writing more complex pieces of code. But let&#39;s move on. Next up is functions!</p>
+
+<p><sub>[1] This is actually not completely true, but is generally considered good practice. The actual rules that are applied to variable identifiers can be found <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-7.6">here</a>.</sub></p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>Which of the following variable names are valid?</p>
+
+<ul>
+<li>  <code>abc</code></li>
+<li>  <code>ABC</code></li>
+<li>  <code>abc123</code></li>
+<li>  <code>abc_123</code></li>
+<li>  <code>123abc</code></li>
+<li>  <code>a1b2c3</code></li>
+</ul>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>All of the above names are valid but <code>123abc</code>, due to its first character being a digit.</p>
+
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>What value does the variable <code>x</code> have after executing the following statements?</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">x = </span><span class="mi">1</span>
+<span class="nv">y = </span><span class="mi">5</span>
+<span class="nx">x</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="nx">x</span> <span class="o">%=</span> <span class="mi">3</span>
+<span class="o">++</span><span class="nx">x</span>
+<span class="nx">x</span> <span class="o">*=</span> <span class="mi">4</span>
+<span class="nx">y</span> <span class="o">/=</span> <span class="mi">5</span>
+<span class="nx">x</span><span class="o">--</span>
+<span class="nv">y = </span><span class="nx">x</span>
+<span class="nx">y</span> <span class="o">-=</span> <span class="mi">2</span>
+</code></pre></div>
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>The variable <code>x</code> will contain the value <code>3</code> at the end of the block of code.</p>
+
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 3</h3>
+
+      <p>Create two variables, <code>age</code> and <code>name</code>, that represents your age and name, respectively. Using these two variables, create a third one, <code>greeting</code>, which should be a string containing a greeting that presents yourself with your name and age.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-3">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>Assuming your age is 10 and you name is Bart, the greeting could be constructed as follows:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">age = </span><span class="mi">10</span>
+<span class="nv">name = </span><span class="s">&#39;Bart&#39;</span>
+<span class="nv">greeting = </span><span class="s">&quot;Hello! My name is </span><span class="si">#{</span><span class="nx">name</span><span class="si">}</span><span class="s"> and I am </span><span class="si">#{</span><span class="nx">age</span><span class="si">}</span><span class="s"> years old.&quot;</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(3)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+          <a href="/coffee-adventure/chapters/2">
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
+          </a>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/4">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

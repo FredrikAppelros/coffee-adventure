@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Functions</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/4/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Functions</h1>
+
+<p>So, up until now, we&#39;ve only been able to use basic operations on data. What if we&#39;ve created a set of statements which performs a useful computation and we want to reuse it? Enter: <em>functions</em>.</p>
+
+<p>With functions we can group statements together into a sort of reusable bundle. To allow functions to operate on different inputs, they are defined using <em>parameters</em>. Parameters are simply a set of variables that the function operates on. When you want to use a function you <em>call</em> it with a set of <em>arguments</em>. The arguments are the values that will be bound to the parameters.</p>
+
+<p>Okay, that was a lot of terminology and probably quite confusing. Let&#39;s try to use an existing function, <code>console.log</code>.<sup>[1]</sup> This function takes a series of strings and outputs them on the <em>standard output stream</em>, or <code>stdout</code> in short.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Hello, World!&#39;</span>
+</code></pre></div>
+<p>Okay, so that just printed the string right back to us. Seems a lot like just writing the string by itself as a statement, right? No, not at all. As you can see, we also got another response below it: <code>undefined</code>. Similar to statements, functions can also return values. In this case the <code>console.log</code> function does not have a return value; thus we get <code>undefined</code>. So where did the <code>Hello, World!</code> output come from?</p>
+
+<p>When we&#39;re using the REPL we constantly get feedback on what our statements evaluate to. This is not the case if we write our code as a <em>script</em>. A script is a file which contains code that can be run by an <em>interpreter</em>. The interpreter is the part that is used by the REPL to convert the code that we write into actual instructions that the computer then executes. Actually, this file you&#39;re reading right now is a script!</p>
+
+<p>So, to produce any kind of output from a script, we need to send it somewhere. That is what <code>stdout</code> is for! Normally, if you run the script from a terminal, then the text that is sent to <code>stdout</code> is printed in the terminal. All other statements will be silent and not result in any output.</p>
+
+<p>Moving on, to fully understand functions, let&#39;s create our own. Actually, let&#39;s create it in a script. Open a new empty file and save it as <code>myscript.coffee</code>. Now, instead of entering the code into the REPL, write it in this file.</p>
+
+<p>So, say we want a function that calculates the area of a triangle. The function will need to know the width and height of the triangle in order to perform the calculation. We can supply these using parameters. Then it needs to calculate the area and return the result. Here is the function in all its glory:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">triangleArea = </span><span class="nf">(width, height) -&gt;</span>
+  <span class="nv">area = </span><span class="nx">width</span> <span class="o">*</span> <span class="nx">height</span>
+  <span class="nx">area</span> <span class="o">/=</span> <span class="mi">2</span>
+</code></pre></div>
+<p>To understand what&#39;s going on, let&#39;s break it down a bit. The first part, <code>triangleArea =</code>, is just a normal variable assignment. Functions can be used as values and we&#39;ve chosen to store our function in a variable named <code>triangleArea</code>. The rest of the snippet is the actual function definition. The variables within parenthesis, <code>width</code> and <code>height</code>, are our function parameters. Then comes the <code>-&gt;</code> symbol that indicates the start of the <em>function body</em>.</p>
+
+<p>The function body is a set of statements, or <em>code block</em>, that are executed when the function is called. As you can see, these statements are indented relative to the rest of the code. In most languages, this is done simply to make it easier for the reader to understand which parts of the code belong to the function and which don&#39;t. This is <em>not</em> the case with CoffeeScript. The indentation here is required for the interpreter to parse the code. Lines that are not indented do not belong to the function, and will not be executed when the function is called.</p>
+
+<p>The indentation can be accomplished with either tabs or spaces, but be sure to not mix them. Also, if you use spaces, try to use a multiple of 2. If you use different styles of indentation within the same block, the interpreter will fail to parse your code correctly.</p>
+
+<p>The value that our function returns to the caller is the same as the evaluation of the last statement in the function body. In our case, the last statement is part of the area calculation, so everything is in order. In other cases you might have to write the value that you wish to return on a row by itself at the end of the function. You can also set the return value explicitly with a <code>return</code> statement, which causes the function to return to the caller prematurely. This can be very useful when an early abort is desirable to prevent an illegal operation further on in the function.</p>
+
+<p>Now, let&#39;s start using our newly created function. We do this by first specifying which function we would like to call, commonly using the variable that refers to the function, and then specifying the arguments that we would like to bind to the function parameters.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">triangleArea</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+</code></pre></div>
+<p>Note how we separate the arguments with the <code>,</code> character. Okay, great! So now we have a reusable function that we can apply to different arguments. Let&#39;s try to calculate the area of a few different triangles and print it to the terminal using <code>console.log</code>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">area1 = </span><span class="nx">triangleArea</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span>
+<span class="nv">area2 = </span><span class="nx">triangleArea</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">area1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">area2</span>
+</code></pre></div>
+<p>To run the script, first of all, save it, then simply enter the following into your terminal:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">coffee myscript.coffee
+</code></pre></div>
+<p>Cool! You&#39;ve just written your first script! As you can see from the order of the output, the code in the script is executed from the top down. This is the standard flow of execution. But we&#39;ve already deviated from this flow! When we perform our function calls, we&#39;re actually executing code located above the function call itself.</p>
+
+<p>The function call is the first type of <em>control flow</em> statements that we will be introduced to. Later on we will see other types of statements that also modify the execution order of our programs. But, before we move on, there&#39;s a few more things you need to know about writing and using functions.</p>
+
+<p>What happens when a function doesn&#39;t need any arguments? Well, either you just use a pair of empty parenthesis, <code>()</code>, in the function definition, or you just skip them completely.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">printHello = </span><span class="nf">-&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Hello&#39;</span>
+</code></pre></div>
+<p>So how do we call this function then when it doesn&#39;t take any arguments? Well, it&#39;s done like this:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">printHello</span><span class="p">()</span>
+</code></pre></div>
+<p>And what about when we want to call a function with the result from another function call? Let&#39;s try to print both the width, height and area of a triangle with a single statement.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">triangleArea</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+</code></pre></div>
+<p>Okay, not a problem. But what if we would like to print the area first, followed by the width and height?</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">triangleArea</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+</code></pre></div>
+<p>Hmm, that was not really what we intended to do. The problem here is that the inner function call, <code>triangleArea</code>, swallowed all of our arguments. The interpreter has no way of knowing which arguments should be passed to the inner function and which should be passed to the outer one. So it ends up sending all of them to the inner one even though it only cares about the two first ones. Yet again, parenthesis solves this disambiguity.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">triangleArea</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+</code></pre></div>
+<p>As we mentioned before, functions can be used as values. This allows us to pass a function into another as a <em>callback</em>. This can be very useful if you have a function which you do not know how long it takes to complete, but you still want to perform an action upon completion. This situation can arise when we are waiting on user input, or waiting for another process to finish. As always, this concept is easier to grasp when we see it in action.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">rest = </span><span class="nf">-&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Phew! That was a lot of work.&#39;</span>
+
+<span class="nv">work = </span><span class="nf">(callback) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Hard work is HARD.&#39;</span>
+  <span class="nx">callback</span><span class="p">()</span>
+
+<span class="nx">work</span> <span class="nx">rest</span>
+</code></pre></div>
+<p>Okay, let&#39;s break it down. First, we create two functions; <code>rest</code> and <code>work</code>. The <code>work</code> function has a parameter, <code>callback</code>, which will be bound to another function. At the end of the <code>work</code> function, before returning, we call the function <code>callback</code>. Thus, when we call the function <code>work</code> with the argument <code>rest</code>, we will bind <code>rest</code> to the parameter <code>callback</code>, resulting in <code>rest</code> eventually being called. This can be a bit confusing, so make sure you go through this a few times until you have fully grasped the concept.</p>
+
+<p>We could, in the last example, also just define the callback function directly, without first storing it in the <code>rest</code> variable. Then we would get something like this.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">work</span> <span class="nf">-&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Phew! That was a lot of work.&#39;</span>
+</code></pre></div>
+<p>That was it for functions. Next up we will learn how to perform different operations under different conditions.</p>
+
+<p><sub>[1] Actually, console.log is not just a function; it&#39;s a method. The difference between functions and methods will be explained in a later chapter, but for now they are pretty much equivalent.</sub></p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>Write a function that calculates the area of a rectangle.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">rectangleArea = </span><span class="nf">(length, width) -&gt;</span>
+  <span class="nx">length</span> <span class="o">*</span> <span class="nx">width</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>Write a function that calculates the volume of a rectangular prism, using the function from the previous exercise to calculate the area of the base.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">prismVolume = </span><span class="nf">(length, width, height) -&gt;</span>
+  <span class="nv">baseArea = </span><span class="nx">rectangleArea</span> <span class="nx">length</span><span class="p">,</span> <span class="nx">width</span>
+  <span class="nx">baseArea</span> <span class="o">*</span> <span class="nx">height</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 3</h3>
+
+      <p>Go to <code>apps/paint</code> and follow the instructions in the <a href="https://github.com/FredrikAppelros/coffee-adventure-paint/blob/master/README.md"><code>README</code></a> file.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+          <a href="/coffee-adventure/chapters/3">
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
+          </a>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/5">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

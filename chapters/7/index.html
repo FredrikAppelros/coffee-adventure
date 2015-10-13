@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Loops</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/7/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Loops</h1>
+
+<p>Now we&#39;ve learnt how to bundle operations and data together with functions and data structures. This allows us to work with computations in a convenient way. But what happens when you have to perform the same computation ten times? Well, we could just write out the same function call ten times over. But what if we it weren&#39;t ten times, but a million times? Obviously, there must be a better way to do this.</p>
+
+<h3>Comprehensions</h3>
+
+<p>Luckily, performing the same task over and over in rapid succession is something computers really excel at. The construct that is used to repeat a task is called a <em>loop</em>. The first type of loop we will try out is the <em>comprehension</em>. A comprehension iterates over a given data structure and performs a task for each element. We can create a comprehension with the <code>for</code> keyword in combination with either <code>in</code> or <code>of</code>, depending on the data structure.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">eat = </span><span class="nf">(food) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Wow! This </span><span class="si">#{</span><span class="nx">food</span><span class="si">}</span><span class="s"> is delicious!&quot;</span>
+
+<span class="nv">dishes = </span><span class="p">[</span><span class="s">&#39;taco&#39;</span><span class="p">,</span> <span class="s">&#39;boeuf bourguignon&#39;</span><span class="p">,</span> <span class="s">&#39;lentil soup&#39;</span><span class="p">]</span>
+<span class="nx">eat</span> <span class="nx">dish</span> <span class="k">for</span> <span class="nx">dish</span> <span class="k">in</span> <span class="nx">dishes</span>
+</code></pre></div>
+<p>The <code>for dish in dishes</code> part is the actual comprehension. We&#39;re binding each element of the array <code>dishes</code> to a variable, which in this case we chose to call <code>dish</code>. The rest of the row, <code>eat dish</code>, is the statement which we wish to perform for each element. This uses the postfix form of <code>for</code>, but we can also write comprehensions that use code blocks instead, such as in the following snippet.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">for</span> <span class="nx">dish</span> <span class="k">in</span> <span class="nx">dishes</span>
+  <span class="nx">eat</span> <span class="nx">dish</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;*burp*&#39;</span>
+</code></pre></div>
+<p>Similarily, we can iterate over objects and their properties the same way by exchanging the <code>in</code> for an <code>of</code>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">listen = </span><span class="nf">(genre, like) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;♪ </span><span class="si">#{</span><span class="nx">genre</span><span class="si">}</span><span class="s"> ♪&quot;</span>
+  <span class="k">if</span> <span class="nx">like</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;I love this song!&#39;</span>
+  <span class="k">else</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Urgh. What garbage is this?&#39;</span>
+
+<span class="nv">genres =</span>
+  <span class="s">&#39;Rock&#39;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="s">&#39;Hip Hop&#39;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="s">&#39;Dubstep&#39;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="nx">listen</span> <span class="nx">genre</span><span class="p">,</span> <span class="nx">like</span> <span class="k">for</span> <span class="nx">genre</span><span class="p">,</span> <span class="nx">like</span> <span class="k">of</span> <span class="nx">genres</span>
+</code></pre></div>
+<p>If you&#39;re only interested in the name of the property, and not the value, you can simplify it a bit.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;I listen to </span><span class="si">#{</span><span class="nx">genre</span><span class="si">}</span><span class="s"> music&quot;</span> <span class="k">for</span> <span class="nx">genre</span> <span class="k">of</span> <span class="nx">genres</span>
+</code></pre></div>
+<p>With comprehensions you can even filter out unwanted elements using the <code>when</code> keyword.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;I like </span><span class="si">#{</span><span class="nx">genre</span><span class="si">}</span><span class="s">&quot;</span> <span class="k">for</span> <span class="nx">genre</span><span class="p">,</span> <span class="nx">like</span> <span class="k">of</span> <span class="nx">genres</span> <span class="k">when</span> <span class="nx">like</span>
+</code></pre></div>
+<p>Okay, but what if we just want to repeat something a fixed amount of times instead of iterating an existing data structure? Well, we could use a <em>range</em>.</p>
+
+<h3>Ranges</h3>
+
+<p>A range in CoffeeScript is the same thing as an interval in mathematics. It is a set of numbers that lie between two endpoints. Ranges are created with square brackets, like arrays, and can be either <em>inclusive</em> or <em>exclusive</em>. An inclusive range includes the last endpoint while an exclusive range excludes it.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">i</span> <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">..</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">i</span> <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">20</span><span class="p">...</span><span class="mi">25</span><span class="p">]</span>
+</code></pre></div>
+<p>As you can see, we can start the iteration from either endpoint. Inclusive and exclusive ranges are denoted by <code>..</code> and <code>...</code> respectively. If we want to change our stride, i.e. the distance between each discrete step of our range, we can do that with the help of the <code>by</code> keyword. We don&#39;t even need to use integers!</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">i</span> <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">...</span><span class="mf">0.3</span><span class="p">]</span> <span class="k">by</span> <span class="mf">0.1</span>
+</code></pre></div>
+<h3>While loops</h3>
+
+<p>Comprehensions are all well and good when we know beforehand how many times we need to perform an action. But what if this is unknown? When we need to repeat something based on some general condition we can use a <code>while</code> loop instead.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">haystack = </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="nv">needle = </span><span class="mi">7</span>
+<span class="nv">pos = </span><span class="mi">0</span>
+<span class="nx">pos</span><span class="o">++</span> <span class="k">while</span> <span class="nx">haystack</span><span class="p">[</span><span class="nx">pos</span><span class="p">]</span> <span class="o">isnt</span> <span class="nx">needle</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;The number </span><span class="si">#{</span><span class="nx">needle</span><span class="si">}</span><span class="s"> was found in position </span><span class="si">#{</span><span class="nx">pos</span><span class="si">}</span><span class="s">&quot;</span>
+</code></pre></div>
+<p>The syntax is simple. After the <code>while</code> keyword comes the condition statement. So long as this statement evaluates to <code>true</code>, the loop keeps on going. Just like comprehensions, <code>while</code> loops can be written with code blocks as well. Similar to <code>unless</code>, we also have <code>until</code>, which is short for <code>while not</code>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">cmds = </span><span class="p">[</span><span class="s">&#39;do stuff&#39;</span><span class="p">,</span> <span class="s">&#39;do stuff&#39;</span><span class="p">,</span> <span class="s">&#39;quit&#39;</span><span class="p">,</span> <span class="s">&#39;do stuff&#39;</span><span class="p">]</span>
+<span class="nv">pos = </span><span class="mi">0</span>
+<span class="k">until</span> <span class="nx">cmds</span><span class="p">[</span><span class="nx">pos</span><span class="o">++</span><span class="p">]</span> <span class="o">is</span> <span class="s">&#39;quit&#39;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Work, work!&#39;</span>
+</code></pre></div>
+<h3>Breaking and skipping</h3>
+
+<p>We&#39;ve previously mentioned how we can use a <code>return</code> statement to prematurely jump out of a function. Similarily, we can use a <code>break</code> statement to prematurely jump out of a loop.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">5</span><span class="p">]</span>
+  <span class="k">break</span> <span class="k">if</span> <span class="nx">i</span> <span class="o">is</span> <span class="mi">3</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">i</span>
+</code></pre></div>
+<p>This can be useful if we want to abort the processing done in our loop, but still want to execute some cleanup code located further down in our function.</p>
+
+<p>Much like the <code>break</code> statement we can also use the <code>continue</code> keyword to skip a single iteration within a loop.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">..</span><span class="mi">5</span><span class="p">]</span>
+  <span class="k">continue</span> <span class="k">if</span> <span class="nx">i</span> <span class="o">is</span> <span class="mi">3</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">i</span>
+</code></pre></div>
+<h3>Caveats</h3>
+
+<p>One thing that we need to be careful of is using asynchronous functions within loops and comprehensions. An example of an asynchronous function is the <code>setTimeout</code> function, which takes two parameters; <code>callback</code> and <code>delay</code>. It will call the <code>callback</code> function after approximately <code>delay</code> milliseconds. Let&#39;s see what happens if we use this in a naive way.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">work = </span><span class="nf">(task, callback) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Starting task: </span><span class="si">#{</span><span class="nx">task</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nx">setTimeout</span> <span class="nx">callback</span><span class="p">,</span> <span class="mi">1</span>
+
+<span class="nv">tasks = </span><span class="p">[</span><span class="s">&#39;rake&#39;</span><span class="p">,</span> <span class="s">&#39;plant&#39;</span><span class="p">,</span> <span class="s">&#39;mow&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="nx">task</span> <span class="k">in</span> <span class="nx">tasks</span>
+  <span class="nx">work</span> <span class="nx">task</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Completed task: </span><span class="si">#{</span><span class="nx">task</span><span class="si">}</span><span class="s">&quot;</span>
+</code></pre></div>
+<p>Huh? We just got three <code>Completed task: mow</code> in a row. That is because the <code>callback</code> function uses the variable <code>task</code> in the comprehension. Since the function <code>setTimeout</code> is asynchronous, the comprehension will move to the next element of the array before <code>callback</code> can be invoked. In this case, the comprehension managed to finish and therefore the <code>task</code> variable got stuck on the last element of the array, <code>&#39;mow&#39;</code>, resulting in three identical outputs.</p>
+
+<p>We can resolve this situation quite easily by binding each iteration to the current value of the <code>task</code> variable. The <code>do</code> statement helps us with just that by directly invoking the function that is passed to it. The function will then bind its arguments to its parameters and thus the <code>callback</code> function will use the correct value of the <code>task</code> variable.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">for</span> <span class="nx">task</span> <span class="k">in</span> <span class="nx">tasks</span>
+  <span class="nx">do</span> <span class="nf">(task) -&gt;</span>
+    <span class="nx">work</span> <span class="nx">task</span><span class="p">,</span> <span class="nf">-&gt;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Completed task: </span><span class="si">#{</span><span class="nx">task</span><span class="si">}</span><span class="s">&quot;</span>
+</code></pre></div>
+<p>We&#39;ve now walked through the last types of control flow statements that we will encounter. Next, we will learn about classes.</p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>Make the computer print out your own name 100 times.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>Once again assuming your name is Bart:</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Bart&#39;</span> <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">..</span><span class="mi">100</span><span class="p">]</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>Create a function, <code>printReverse</code>, which prints out each element of a given list, but in reverse order.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">printReverse = </span><span class="nf">(list) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">list</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="p">[</span><span class="nx">list</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">..</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 3</h3>
+
+      <p>Create a function, <code>max</code>, which finds the largest number in a list of numbers.</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-3">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">max = </span><span class="nf">(list) -&gt;</span>
+  <span class="nv">m = </span><span class="nx">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="nv">m = </span><span class="nx">e</span> <span class="k">for</span> <span class="nx">e</span> <span class="k">in</span> <span class="nx">list</span> <span class="k">when</span> <span class="nx">e</span> <span class="o">&gt;</span> <span class="nx">m</span>
+  <span class="nx">m</span>
+</code></pre></div>
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(3)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+    </div>
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+          <a href="/coffee-adventure/chapters/6">
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
+          </a>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/8">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

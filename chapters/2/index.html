@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Operations</title>
+  <meta name="description" content="A Beginner's Guide to Programming in CoffeeScript">
+
+  <link rel="icon" type="image/x-icon" href="/coffee-adventure/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/coffee-adventure/css/main.css">
+  <link rel="canonical" href="/coffee-adventure/chapters/2/">
+
+  <script src="/coffee-adventure/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="/coffee-adventure/bower_components/iron-collapse/iron-collapse.html">
+  <link rel="import" href="/coffee-adventure/bower_components/paper-button/paper-button.html">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-67252920-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a href="/coffee-adventure/">
+      <div class="site-icon">
+        <i class="fa fa-coffee fa-inverse fa-2x"></i>
+      </div>
+      <h1 class="site-title">A Coffee Fueled Adventure</h1>
+    </a>
+
+    <p>A Beginner's Guide to Programming in CoffeeScript</p>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="chapter">
+
+  <article class="chapter-content">
+    <h1>Operations</h1>
+
+<p>Even the most complex computer program can be broken down into a series of rather simple operations that are performed on the data. We will now go through a few of the available basic operations that can be performed on the types that we introduced in the previous exercise.</p>
+
+<p>Let&#39;s start with some basic arithmetic operations.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="mi">7</span> <span class="o">/</span> <span class="mi">8</span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span>
+</code></pre></div>
+<p>Okay, so now we see that the REPL actually returns the result of these calculations, and doesn&#39;t just echo back what we just wrote! Let the significance of this sink in for a bit. We told the computer to run a computation for us and provide us with the result. This is the essence of computer programming. The example itself is not very impressive though, since you can do this with any pocket calculator. Let&#39;s look at some operations that are not commonly found in calculators: comparisons.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">1</span> <span class="o">is</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="o">isnt</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">4</span>
+<span class="mi">5</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+<span class="mi">6</span> <span class="o">&lt;=</span> <span class="mi">7</span>
+</code></pre></div>
+<p>So, what&#39;s happening here is that we&#39;re comparing two numbers to each other and that we receive a boolean value as the result. This value indicates if the comparison was truthful or not. We will see how that is useful later on.</p>
+
+<p>We also see that an <em>operator</em>, the symbol that represents the operation, doesn&#39;t have to concist of a single character. It can in fact be a series of symbols in concert or even a word. The values on either side of the operation symbol are called <em>operands</em>.</p>
+
+<p>Another operator that is commonly used in programming is <code>%</code>, the modulo operator. Even if you haven&#39;t heard of the term modulus before, you have probably used it. Let&#39;s try it out.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">4</span> <span class="o">%</span> <span class="mi">10</span>
+<span class="mi">14</span> <span class="o">%</span> <span class="mi">10</span>
+<span class="mi">42</span> <span class="o">%</span> <span class="mi">2</span>
+</code></pre></div>
+<p>As you might have figured out, the modulus is simply a fancy word for the remainder that is produced during division.</p>
+
+<p>Yet another thing that&#39;s good to know is that operators have different <em>precedence</em>. This is just like ordinary mathematical notation where multiplication has a higher precedence than addition. And again, just like in mathematical notation, the precedence of an expression can be changed using parenthesis. This means that the following expression will evaluate to different results.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+</code></pre></div>
+<p>The last arithmetic operator we will introduce in this chapter is the negation operator, <code>-</code>, which returns the negative value of its operand.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>It uses the same symbol as the subtraction operator, but the difference lies in how many operands they operate on. The negation operator is a <em>unary operator</em>, which means that it only has a single operand. On the other hand, the subtraction operator, is a <em>binary operator</em>, which means that it uses two operands. In some languages there are even <em>ternary operators</em> which, yeah, you guessed it, works with three operators.</p>
+
+<p>So, what can we do with the other types we just introduced?</p>
+
+<p>With strings, we have another intuitive operation that we can perform: concatenation. That is, to add one string to the end of another.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&#39;This will result in&#39;</span> <span class="o">+</span> <span class="s">&#39; a single string&#39;</span>
+</code></pre></div>
+<p>So, what more can we do? Well, we can concatenate strings with numbers.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&#39;I wish I had &#39;</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">+</span> <span class="s">&#39; apples&#39;</span>
+</code></pre></div>
+<p>As you see this simply uses the decimal representation of the number and treats it as if it were a string. A better way to do this is to use <em>string iterpolation</em>.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&quot;I wish I had </span><span class="si">#{</span> <span class="mi">24</span> <span class="o">/</span> <span class="mi">2</span> <span class="si">}</span><span class="s"> apples&quot;</span>
+</code></pre></div>
+<p>When interpolating a string, any code within <code>#{}</code> will be evaluated and inserted back into the string. This is only possible using <code>&quot;</code> characters. Strings enclosed in <code>&#39;</code> characters are always interpreted literally.</p>
+
+<p>Perhaps you have noticed that the <code>+</code> operator does different things to different types of data. That is what data types are for; to allow us to define different operations on them. So, can we remove a part of a string from another? Let&#39;s try it.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="s">&#39;This is a very long string&#39;</span> <span class="o">-</span> <span class="s">&#39;very&#39;</span>
+</code></pre></div>
+<p>Well, no, at least not like that. The return value we got was <code>NaN</code>, which stands for &quot;Not a Number&quot;. There is no operation to do what we would like to do, so the computer assumed we tried to subtract a number from another number. As none of the operands were actually a number, the computer tries to make us aware of this. We will soon see other ways that the computer uses to help us find errors in the code that we write.</p>
+
+<p>Now, let&#39;s introduce some operations that we can perform on booleans.</p>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="o">not</span> <span class="kc">true</span>
+<span class="kc">true</span> <span class="o">and</span> <span class="kc">false</span>
+<span class="kc">true</span> <span class="o">or</span> <span class="kc">false</span>
+</code></pre></div>
+<p>Be sure to try different combinations of these to really understand how these operations work!</p>
+
+<p>So, to summarize things:</p>
+
+<ul>
+<li>There are a set of symbols and words within the language that are used as operators.</li>
+<li>Operators operate on specific data types. The same operator can do different things to different data types.</li>
+<li>Operations return values of a specific data type, which is not necessarily the same type as the operands.</li>
+<li>You can use parenthesis to enforce the precedence of particular terms in an expression.</li>
+</ul>
+
+<p>Now, let&#39;s move on to another powerful concept: variables!</p>
+
+  </article>
+
+  <div class="exercises">
+
+  <script type="text/javascript">
+    function toggle(i) {
+      document.getElementById("answer-" + i).toggle();
+    }
+  </script>
+
+  
+  
+
+  <h2>Exercises</h2>
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 1</h3>
+
+      <p>What is the result of the following expressions?</p>
+
+<ul>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">17</span> <span class="o">%</span> <span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="p">(</span><span class="kc">true</span> <span class="o">or</span> <span class="kc">false</span><span class="p">)</span> <span class="o">and</span> <span class="kc">false</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span> <span class="o">or</span> <span class="p">(</span><span class="kc">false</span> <span class="o">and</span> <span class="kc">false</span><span class="p">)</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span> <span class="o">or</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-1">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p>The statements above evaluate to:</p>
+
+<ul>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">false</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="mi">8</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">false</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span>
+</code></pre></div></li>
+</ul>
+
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(1)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+    <div class="exercise-wrapper">
+
+      <h3 class="exercise-header"><i class="fa fa-fw fa-pencil-square-o"></i>Exercise 2</h3>
+
+      <p>Which operator has higher precedence; <code>and</code> or <code>or</code>?</p>
+
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+        <iron-collapse id="answer-2">
+
+          <h3 class="exercise-header"><i class="fa fa-fw fa-book"></i>Answer</h3>
+
+          <p><code>and</code> is the one with higher precedence. This can be seen by using the constructs from the previous exercise; compare the outputs of running the following statements:</p>
+
+<ul>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="p">(</span><span class="kc">true</span> <span class="o">or</span> <span class="kc">false</span><span class="p">)</span> <span class="o">and</span> <span class="kc">false</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span> <span class="o">or</span> <span class="p">(</span><span class="kc">false</span> <span class="o">and</span> <span class="kc">false</span><span class="p">)</span>
+</code></pre></div></li>
+<li><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="kc">true</span> <span class="o">or</span> <span class="kc">false</span> <span class="o">and</span> <span class="kc">false</span>
+</code></pre></div></li>
+</ul>
+
+<p>You can see that the result of the last statement is <code>true</code>, which is the same as the second statement, where we enforce that we perform the <code>and</code> operation before the <code>or</code> operation.</p>
+
+
+        </iron-collapse>
+
+        <paper-button class="answer-button" onclick="toggle(2)" noink toggles>
+          Show me the answer
+        </paper-button>
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+        
+
+      
+
+    </div>
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+    
+
+  
+
+</div>
+
+
+  <footer class="chapter-footer">
+
+  <div class="wrapper">
+
+    
+    <table class="footer-table">
+      <tr>
+        <td>
+          
+          <a href="/coffee-adventure/chapters/1">
+            <i class="fa fa-chevron-left"></i><span class="footer-text">Previous chapter</span>
+          </a>
+          
+        </td>
+
+        <td>
+          <a href="/coffee-adventure/chapters">Table of contents</a>
+        </td>
+
+        <td>
+          
+          <a href="/coffee-adventure/chapters/3">
+            <span class="footer-text">Next chapter</span><i class="fa fa-chevron-right"></i>
+          </a>
+          
+        </td>
+      </tr>
+    </table>
+    
+
+  </div>
+
+</footer>
+
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
